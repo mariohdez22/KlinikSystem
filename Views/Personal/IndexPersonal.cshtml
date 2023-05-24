@@ -1,0 +1,802 @@
+﻿@model List<KlinikSystem.Models.Personal>
+@{
+    ViewData["Title"] = "Administracion Personal";
+}
+@section Estilos
+{
+    <link rel="stylesheet" href="~/css/VistaMuestra/PersonalMuestra.css" asp-append-version="true" />
+}
+
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*Apartado del indice de operaciones del formulario /////////////////////////////////////////////////*@
+
+    <div id="indiceFormulario">
+        <p>Klinik System > Gestion de pacientes general</p>
+    </div>
+
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*Apartado del menu de opciones del formulario //////////////////////////////////////////////////////*@
+
+<div id="contenedorGeneralFormulario">    
+
+    <div id="contenedorMenusFormulario"> 
+
+        <div id="opcionesMenu1">  @*espacio para agregar opciones en el filtro mmmmmmmmmmmmmmmmmmmmmm*@
+
+            <div id="filtroMenu">
+
+                <div id="iconoFiltro">
+                    <i class="bi bi-funnel-fill"></i>
+                </div>
+
+                <div id="grupoSelectFiltro">
+                    <div id="iconoSelect">
+                        <i class="bi bi-person-fill-gear"></i>
+                    </div>
+                    <select id="selectFiltro" class="filtroAreaTrabajo" onclick="SelectIndiceArea()" asp-items="ViewBag.AreaTrabajo">
+                        <option>Area Trabajo...</option>
+                    </select>
+                </div>
+
+                <div id="grupoSelectFiltro">
+                    <div id="iconoSelect">
+                        <i class="bi bi-person-fill-check"></i>
+                    </div>
+                    <select id="selectFiltro" class="filtroEspecialidad" onclick="SelectIndiceEspecialidad()" asp-items="ViewBag.Especialidades">
+                        <option>Especialidades...</option>
+                    </select>
+                </div>
+
+                <div id="grupoSelectFiltro">
+                    <div id="iconoSelect">
+                        <i class="bi bi-person-fill-exclamation"></i>
+                    </div>
+                    <select id="selectFiltro" class="filtroEstadoTrabajo" onclick="SelectIndiceEstado()" asp-items="ViewBag.EstadoPersonal">
+                        <option>Estado Personal...</option>
+                    </select>
+                </div>
+
+            </div>
+            <div id="generalidadesMenu">
+
+                <div id="estadosMenu" class="perfilEstado">
+                    
+                    <p>Estado: <strong>General</strong> </p>
+
+                </div>
+
+                <div id="estadosMenu" class="perfilTipo">
+                    
+                    <p>Tipo: <strong>General</strong> </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="opcionesMenu2"> @*espacio para agregar botones en las opciones mmmmmmmmmmmmmmmmmmmmm*@
+
+            <div id="botonesMenu">
+
+                <a asp-action="AgregarPersonal" asp-controller="Personal" asp-route-idpersonal="0" id="botonMenuAgregar"><i class="bi bi-check-circle-fill"></i> Agregar Registros</a>
+
+                <a id="botonMenuImprimir"><i class="bi bi-file-earmark-pdf-fill"></i> Imprimir Registros</a>
+
+            </div>
+
+            <div id="inputMenu">
+
+                <form asp-controller="Personal" asp-action="IndexPersonal">
+
+                    <div id="grupoInputBuscar">
+
+                        <div id="iconoBuscarMenu"><i class="bi bi-search"></i></div>
+                        <input name="buscar" type="text" placeholder="Buscar Registro"/>
+                    
+                    </div>
+                
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*Apartado del contenedor de registros del formulario ///////////////////////////////////////////////*@
+
+    <div id="contenedorRegistrosFormulario">
+
+        @*espacio para agregar tarjetas de registros mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*@
+
+        @foreach (var item in Model)
+        {
+            <div id="tarjetaRegistros"> @*id que sirve para modificar el tamaño de la tarjeta*@
+
+                <div id="encabezadoRegistros">
+
+                    <div id="imagenRegistro"><img src="@item.Imagen" width="25" height="30" /></div>
+
+                    <h2>@item.Nombres</h2>
+
+                    <div id="tipoRegistros">
+
+                        <p>@item.IdareaTrabajoNavigation.AreaTrabajo1</p>
+
+                    </div>
+
+                </div>
+
+                <div id="cuerpoRegistros"> @*sirve para modificar la alinacion de los contenedores*@
+                
+                    @*espacio para agregar contenedores para datos mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*@
+
+                    <div id="contenedorDatosRegistros">
+
+                        @*agregar este nombre "datoRegistrosModificado" al componente que se quiera 
+                        modificar y cambiarle el tamaño *@
+
+                        <div id="datoRegistros">
+
+                            <div id="iconoRegistro"><i class="bi bi-person-vcard-fill"></i></div>
+
+                            <div id="atributoRegistro">
+                                <p>@item.Dui</p>
+                            </div>
+
+                        </div>
+
+                        <div id="datoRegistros">
+
+                            <div id="iconoRegistro"><i class="bi bi-person-circle"></i></div>
+
+                            <div id="atributoRegistro">
+                                <p>@item.Profecion</p>
+                            </div>
+
+                        </div>
+
+                        <div id="datoRegistros">
+
+                            <div id="iconoRegistro"><i class="bi bi-telephone-fill"></i></div>
+
+                            <div id="atributoRegistro">
+                                <p>@item.Celular</p>
+                            </div>
+
+                        </div>
+
+                        <div id="datoRegistros">
+
+                            <div id="iconoRegistro"><i class="bi bi-envelope-at-fill"></i></div>
+
+                            <div id="atributoRegistro">
+                                <p>@item.Correo</p>
+                            </div>
+
+                        </div>
+
+                        <div id="datoRegistros">
+
+                            <div id="iconoRegistro"><i class="bi bi-person-video2"></i></div>
+
+                            <div id="atributoRegistro">
+                                <p>@item.IdespecialidadNavigation.Especialidad</p>
+                            </div>
+
+                        </div>
+
+                        <div id="datoRegistros">
+
+                            <div id="iconoRegistro"><i class="bi bi-person-fill-exclamation"></i></div>
+
+                            <div id="atributoRegistro">
+                                <p>@item.IdestadoPersonalNavigation.EstadoPersonal1</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    @*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*@
+
+                </div>
+
+                <div id="pieRegistros">
+
+                    <a asp-action="AgregarPersonal" asp-controller="Personal" asp-route-idpersonal="@item.Idpersonal" id="botonPieRegistro"><i class="bi bi-pencil-square"></i> Editar</a>
+
+                    <a id="botonPieRegistro"><i class="bi bi-x-circle-fill"></i> Suspender</a>
+
+                </div>
+
+            </div>
+        }      
+
+        @*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*@
+
+    </div>
+
+</div>
+
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+
+
+@if (TempData["MensajeActualizar"] != null)
+{
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div id="headerNotiUpdate" class="toast-header bg-info text-white">
+                <i class="bi bi-heart-pulse-fill"></i>
+                <strong class="me-auto">&nbsp; Klinik System</strong>
+                <small>@DateTime.Now</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                @TempData["MensajeActualizar"]
+            </div>
+        </div>
+    </div>
+
+}
+
+@section Scripts
+{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+
+        let SelectIndiceArea = () =>
+        {
+
+            let filtroArea = $('.filtroAreaTrabajo').prop('selectedIndex');
+
+            if(filtroArea === 0)
+            {
+                return false;
+                //location.reload();
+            }
+            else
+            {
+
+                $.ajax({
+                    url: "@Url.Action("FiltroArea", "Personal")",
+                    type: "GET",
+                    data: { indice: $('.filtroAreaTrabajo').prop('selectedIndex') },
+                    success: (response) => 
+                    {
+                        if(response.success === false)
+                        {
+                            $('#contenedorRegistrosFormulario').empty();
+
+                            let $mensajeNulos = 
+                                $(`
+                                    <div id="mensajeNulos">
+                                        <p>${response.message}</p>
+                                    </div>
+                                `)
+
+                            $mensajeNulos.appendTo('#contenedorRegistrosFormulario');
+                        }
+                        else
+                        {
+                            $('#contenedorRegistrosFormulario').empty();
+
+                            $.map(response.datos, (valor, index) => {
+
+                                console.log(valor)
+                                console.log(`id: ${valor.idpersonal}`);
+                                console.log(`nombres: ${valor.nombres}`);
+                                console.log(`dui: ${valor.dui}`);
+                                console.log(`profecion: ${valor.profecion}`);
+                                console.log(`celular: ${valor.celular}`);  
+                                console.log(`correo: ${valor.correo}`);
+                                console.log(`imagen: ${valor.imagen}`);
+                                console.log(`area trabajo: ${valor.areaTrabajo}`);
+                                console.log(`especialidad: ${valor.especialidad}`);
+                                console.log(`estado personal: ${valor.estadoPersonal}`);
+
+                                let urlBase = '@Url.Action("AgregarPersonal", "Personal")';
+
+                                let $tarjetaRegistro = 
+                                $(`
+                                    <div id="tarjetaRegistros">
+
+                                        <div id="encabezadoRegistros">
+
+                                            <div id="imagenRegistro"><img src="${valor.imagen}" width="25" height="30" /></div>
+
+                                            <h2>${valor.nombres}</h2>
+
+                                            <div id="tipoRegistros">
+
+                                                <p>${valor.areaTrabajo}</p>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div id="cuerpoRegistros">              
+
+                                            <div id="contenedorDatosRegistros">
+
+                                                <div id="datoRegistros">
+
+                                                    <div id="iconoRegistro"><i class="bi bi-person-vcard-fill"></i></div>
+
+                                                    <div id="atributoRegistro">
+                                                        <p>${valor.dui}</p>
+                                                    </div>
+
+                                                </div>
+
+                                                <div id="datoRegistros">
+
+                                                    <div id="iconoRegistro"><i class="bi bi-person-circle"></i></div>
+
+                                                    <div id="atributoRegistro">
+                                                        <p>${valor.profecion}</p>
+                                                    </div>
+
+                                                </div>
+
+                                                <div id="datoRegistros">
+
+                                                    <div id="iconoRegistro"><i class="bi bi-telephone-fill"></i></div>
+
+                                                    <div id="atributoRegistro">
+                                                        <p>${valor.celular}</p>
+                                                    </div>
+
+                                                </div>
+
+                                                <div id="datoRegistros">
+
+                                                    <div id="iconoRegistro"><i class="bi bi-envelope-at-fill"></i></div>
+
+                                                    <div id="atributoRegistro">
+                                                        <p>${valor.correo}</p>
+                                                    </div>
+
+                                                </div>
+
+                                                <div id="datoRegistros">
+
+                                                    <div id="iconoRegistro"><i class="bi bi-person-video2"></i></div>
+
+                                                    <div id="atributoRegistro">
+                                                        <p>${valor.especialidad}</p>
+                                                    </div>
+
+                                                </div>
+
+                                                <div id="datoRegistros">
+
+                                                    <div id="iconoRegistro"><i class="bi bi-person-fill-exclamation"></i></div>
+
+                                                    <div id="atributoRegistro">
+                                                        <p>${valor.estadoPersonal}</p>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>                                   
+
+                                        </div>
+
+                                        <div id="pieRegistros">
+
+                                            <a id="botonPieRegistro" class="modalActualizar" onclick="ModalUpdate()"><i class="bi bi-pencil-square"></i> Editar</a>
+
+                                            <a id="botonPieRegistro"><i class="bi bi-x-circle-fill"></i> Suspender</a>
+
+                                            <input id="IdRegistro" type="hidden" value="${valor.idpersonal}"/>
+
+                                        </div>
+
+                                    </div>
+                                `);
+
+                                $tarjetaRegistro.appendTo('#contenedorRegistrosFormulario');
+
+                                //-----------------------------------------------------------
+
+                                $('.perfilTipo').empty(); 
+                                
+                                $.map(response.datos, (valor, index) => 
+                                {                               
+                                    if (index === 0) 
+                                    {
+                                        let $perfiltipo = $(`<p>Tipo: <strong>${valor.areaTrabajo}</strong> </p>`)
+                                        $perfiltipo.appendTo('.perfilTipo')
+                                    }
+                                });
+
+                                //-----------------------------------------------------------
+
+                                $('#indiceFormulario').empty();
+
+                                let $indice = $('<p>Klinik System > Gestion de pacientes general > Filtro de Area de Trabajo</p>')
+
+                                $indice.appendTo('#indiceFormulario')
+
+                            });
+                        }
+                    },
+                    error: () => 
+                    {
+                        console.error("Error al procesar la solicitud.");
+                    }
+                });
+            }  
+        } 
+
+        //-----------------------------------------------------------------------------------
+
+        let SelectIndiceEspecialidad = () =>
+        {
+            let filtroEspecialidad = $('.filtroEspecialidad').prop('selectedIndex');
+
+            if(filtroEspecialidad === 0)
+            {
+                return false;
+                //location.reload();
+            }
+            else
+            {
+
+                $.ajax({
+                    url: "@Url.Action("FiltroEspecialidad", "Personal")",
+                    type: "GET",
+                    data: { indice: $('.filtroEspecialidad').prop('selectedIndex') },
+                    success: (response) => 
+                    {
+                        if(response.success === false)
+                        {
+                            $('#contenedorRegistrosFormulario').empty();
+
+                            let $mensajeNulos = 
+                                $(`
+                                    <div id="mensajeNulos">
+                                        <p>${response.message}</p>
+                                    </div>
+                                `)
+
+                            $mensajeNulos.appendTo('#contenedorRegistrosFormulario');
+                        }
+                        else
+                        {
+                            $('#contenedorRegistrosFormulario').empty();
+
+                            $.map(response.datos, (valor, index) => {
+
+                                console.log(valor)
+                                console.log(`id: ${valor.idpersonal}`);
+                                console.log(`nombres: ${valor.nombres}`);
+                                console.log(`dui: ${valor.dui}`);
+                                console.log(`profecion: ${valor.profecion}`);
+                                console.log(`celular: ${valor.celular}`);  
+                                console.log(`correo: ${valor.correo}`);
+                                console.log(`imagen: ${valor.imagen}`);
+                                console.log(`area trabajo: ${valor.areaTrabajo}`);
+                                console.log(`especialidad: ${valor.especialidad}`);
+                                console.log(`estado personal: ${valor.estadoPersonal}`);
+
+                                let urlBase = '@Url.Action("AgregarPersonal", "Personal")';
+
+                                let $tarjetaRegistro = 
+                                $(`
+                                    <div id="tarjetaRegistros">
+
+                                        <div id="encabezadoRegistros">
+
+                                            <div id="imagenRegistro"><img src="${valor.imagen}" width="25" height="30" /></div>
+
+                                            <h2>${valor.nombres}</h2>
+
+                                            <div id="tipoRegistros">
+
+                                                <p>${valor.areaTrabajo}</p>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div id="cuerpoRegistros">              
+
+                                            <div id="contenedorDatosRegistros">
+
+                                                <div id="datoRegistros">
+
+                                                    <div id="iconoRegistro"><i class="bi bi-person-vcard-fill"></i></div>
+
+                                                    <div id="atributoRegistro">
+                                                        <p>${valor.dui}</p>
+                                                    </div>
+
+                                                </div>
+
+                                                <div id="datoRegistros">
+
+                                                    <div id="iconoRegistro"><i class="bi bi-person-circle"></i></div>
+
+                                                    <div id="atributoRegistro">
+                                                        <p>${valor.profecion}</p>
+                                                    </div>
+
+                                                </div>
+
+                                                <div id="datoRegistros">
+
+                                                    <div id="iconoRegistro"><i class="bi bi-telephone-fill"></i></div>
+
+                                                    <div id="atributoRegistro">
+                                                        <p>${valor.celular}</p>
+                                                    </div>
+
+                                                </div>
+
+                                                <div id="datoRegistros">
+
+                                                    <div id="iconoRegistro"><i class="bi bi-envelope-at-fill"></i></div>
+
+                                                    <div id="atributoRegistro">
+                                                        <p>${valor.correo}</p>
+                                                    </div>
+
+                                                </div>
+
+                                                <div id="datoRegistros">
+
+                                                    <div id="iconoRegistro"><i class="bi bi-person-video2"></i></div>
+
+                                                    <div id="atributoRegistro">
+                                                        <p>${valor.especialidad}</p>
+                                                    </div>
+
+                                                </div>
+
+                                                <div id="datoRegistros">
+
+                                                    <div id="iconoRegistro"><i class="bi bi-person-fill-exclamation"></i></div>
+
+                                                    <div id="atributoRegistro">
+                                                        <p>${valor.estadoPersonal}</p>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>                                   
+
+                                        </div>
+
+                                        <div id="pieRegistros">
+
+                                            <a href="${urlBase}/${valor.idpersonal}" id="botonPieRegistro"><i class="bi bi-pencil-square"></i> Editar</a>
+
+                                            <a id="botonPieRegistro"><i class="bi bi-x-circle-fill"></i> Suspender</a>
+
+                                        </div>
+
+                                    </div>
+                                `);
+
+                                $tarjetaRegistro.appendTo('#contenedorRegistrosFormulario');
+
+                                //-----------------------------------------------------------
+
+                                $('#indiceFormulario').empty();
+
+                                let $indice = $('<p>Klinik System > Gestion de pacientes general > Filtro de Especialidades</p>')
+
+                                $indice.appendTo('#indiceFormulario')
+
+                            });
+                        }
+                    },
+                    error: () => 
+                    {
+                        console.error("Error al procesar la solicitud.");
+                    }
+                });
+            }  
+        }
+
+        //-----------------------------------------------------------------------------------
+
+        let SelectIndiceEstado = () =>
+        {
+            let filtroEstado = $('.filtroEstadoTrabajo').prop('selectedIndex');
+
+            if(filtroEstado === 0)
+            {
+                return false;
+                //location.reload();
+            }
+            else
+            {
+
+                $.ajax({
+                    url: "@Url.Action("FiltroEstado", "Personal")",
+                    type: "GET",
+                    data: { indice: $('.filtroEstadoTrabajo').prop('selectedIndex') },
+                    success: (response) => 
+                    {
+                        if(response.success === false)
+                        {
+                            $('#contenedorRegistrosFormulario').empty();
+
+                            let $mensajeNulos = 
+                                $(`
+                                    <div id="mensajeNulos">
+                                        <p>${response.message}</p>
+                                    </div>
+                                `)
+
+                            $mensajeNulos.appendTo('#contenedorRegistrosFormulario');
+                        }
+                        else
+                        {
+                            $('#contenedorRegistrosFormulario').empty();
+
+                            $.map(response.datos, (valor, index) => {
+
+                                console.log(valor)
+                                console.log(`id: ${valor.idpersonal}`);
+                                console.log(`nombres: ${valor.nombres}`);
+                                console.log(`dui: ${valor.dui}`);
+                                console.log(`profecion: ${valor.profecion}`);
+                                console.log(`celular: ${valor.celular}`);  
+                                console.log(`correo: ${valor.correo}`);
+                                console.log(`imagen: ${valor.imagen}`);
+                                console.log(`area trabajo: ${valor.areaTrabajo}`);
+                                console.log(`especialidad: ${valor.especialidad}`);
+                                console.log(`estado personal: ${valor.estadoPersonal}`);
+
+                                let urlBase = '@Url.Action("AgregarPersonal", "Personal")';
+
+                                let $tarjetaRegistro = 
+                                $(`
+                                    <div id="tarjetaRegistros">
+
+                                        <div id="encabezadoRegistros">
+
+                                            <div id="imagenRegistro"><img src="${valor.imagen}" width="25" height="30" /></div>
+
+                                            <h2>${valor.nombres}</h2>
+
+                                            <div id="tipoRegistros">
+
+                                                <p>${valor.areaTrabajo}</p>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div id="cuerpoRegistros">              
+
+                                            <div id="contenedorDatosRegistros">
+
+                                                <div id="datoRegistros">
+
+                                                    <div id="iconoRegistro"><i class="bi bi-person-vcard-fill"></i></div>
+
+                                                    <div id="atributoRegistro">
+                                                        <p>${valor.dui}</p>
+                                                    </div>
+
+                                                </div>
+
+                                                <div id="datoRegistros">
+
+                                                    <div id="iconoRegistro"><i class="bi bi-person-circle"></i></div>
+
+                                                    <div id="atributoRegistro">
+                                                        <p>${valor.profecion}</p>
+                                                    </div>
+
+                                                </div>
+
+                                                <div id="datoRegistros">
+
+                                                    <div id="iconoRegistro"><i class="bi bi-telephone-fill"></i></div>
+
+                                                    <div id="atributoRegistro">
+                                                        <p>${valor.celular}</p>
+                                                    </div>
+
+                                                </div>
+
+                                                <div id="datoRegistros">
+
+                                                    <div id="iconoRegistro"><i class="bi bi-envelope-at-fill"></i></div>
+
+                                                    <div id="atributoRegistro">
+                                                        <p>${valor.correo}</p>
+                                                    </div>
+
+                                                </div>
+
+                                                <div id="datoRegistros">
+
+                                                    <div id="iconoRegistro"><i class="bi bi-person-video2"></i></div>
+
+                                                    <div id="atributoRegistro">
+                                                        <p>${valor.especialidad}</p>
+                                                    </div>
+
+                                                </div>
+
+                                                <div id="datoRegistros">
+
+                                                    <div id="iconoRegistro"><i class="bi bi-person-fill-exclamation"></i></div>
+
+                                                    <div id="atributoRegistro">
+                                                        <p>${valor.estadoPersonal}</p>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>                                   
+
+                                        </div>
+
+                                        <div id="pieRegistros">
+
+                                            <a href="${urlBase}/${valor.idpersonal}" id="botonPieRegistro"><i class="bi bi-pencil-square"></i> Editar</a>
+
+                                            <a id="botonPieRegistro"><i class="bi bi-x-circle-fill"></i> Suspender</a>
+
+                                        </div>
+
+                                    </div>
+                                `);
+
+                                $tarjetaRegistro.appendTo('#contenedorRegistrosFormulario');
+
+                                //-----------------------------------------------------------
+
+                                $('.perfilEstado').empty(); 
+                                
+                                $.map(response.datos, (valor, index) => 
+                                {                               
+                                    if (index === 0) 
+                                    {
+                                        let $perfilestado = $(`<p>Estado: <strong>${valor.estadoPersonal}</strong> </p>`)
+                                        $perfilestado.appendTo('.perfilEstado')
+                                    }
+                                });
+
+                                //-----------------------------------------------------------
+
+                                $('#indiceFormulario').empty();
+
+                                let $indice = $('<p>Klinik System > Gestion de pacientes general > Filtro de Estado del Personal</p>')
+
+                                $indice.appendTo('#indiceFormulario')
+
+                            });
+                        }
+                    },
+                    error: () => 
+                    {
+                        console.error("Error al procesar la solicitud.");
+                    }
+                });
+            }  
+        }
+
+    </script>
+
+    <script src="~/js/Controladores/Personal.js" asp-append-version="true"></script>
+}
+
+
+    

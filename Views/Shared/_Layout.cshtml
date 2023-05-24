@@ -7,43 +7,99 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/KlinikSystem.styles.css" asp-append-version="true" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    @await RenderSectionAsync("Estilos", required: false)
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">KlinikSystem</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+
+    <section class="contenedor">
+
+        <span>
+            <button id="botonMenu" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="bi bi-list"></i></button>
+            <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Usuarios" ><i class="bi bi-person-badge-fill"></i></a>
+            <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Marcas"><i class="bi bi-building-fill"></i></a>
+            <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Proveedores"><i class="bi bi-person-square"></i></a>
+            <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Productos"><i class="bi bi-box-seam-fill"></i></a>
+            <a id="linksMenu" class="btn btn-secondary" asp-action="GenerarVenta" asp-controller="Ventas"><i class="bi bi-tags-fill"></i></a>
+            <a id="linksMenu" class="btn btn-secondary" asp-action="IndexVenta" asp-controller="Ventas"><i class="bi bi-clipboard2-data-fill"></i></a>
+            <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Usuarios" ><i class="bi bi-person-badge-fill"></i></a>
+            <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Marcas"><i class="bi bi-building-fill"></i></a>
+            <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Proveedores"><i class="bi bi-person-square"></i></a>
+        </span>
+
+        <!-- Menu Oculto (disponible en formato movil) -->
+        <section>
+            <button id="botonMenu" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop"><i class="bi bi-list"></i></button>
+        </section>
+        <!-- //////////////////////////////////////// -->
+
+        <div id="ContenedorPrincipalContenido">
+            <div id="MenuSuperior">
+                <div id="apartadoTituloSuperior">
+                    <h1>ADMINISTRACION DEL PERSONAL</h1>
+                </div>
+                <div id="apartadoOpcionesSuperior">
+                    <div id="grupoInputSuperior">
+                        <div id="IconoBusquedaImagen"><i class="bi bi-search"></i></div>
+                        <input id="inputSuperior" placeholder="Buscar Departamento" />
+                    </div>
+                    <div id="apartadoImagenSuperior"></div>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+            <div id="contenido" class="container">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+
+    </section>
+    
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+      <div class="offcanvas-header"></div>   
+      <div class="offcanvas-body">
+        <ul>
+            <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Usuarios" class="btn btn-secondary" >Gestion Personal</a></li>
+            <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Marcas" class="btn btn-secondary" >Gestion Pacientes</a></li>
+            <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Proveedores" class="btn btn-secondary" >Gestion Citas</a></li>
+            <li id="animacionMenu"><a id="linksNombres" asp-action="IndexVenta" asp-controller="Ventas" class="btn btn-secondary" >Gestion Expedientes</a></li>
+            <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Productos" class="btn btn-secondary" >Gestion Recetas</a></li>
+            <li id="animacionMenu"><a id="linksNombres" asp-action="IndexVenta" asp-controller="Ventas" class="btn btn-secondary" >Gestion Laboratorio</a></li>
+            <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Proveedores" class="btn btn-secondary" >Pruebas Examenes</a></li>
+            <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Productos" class="btn btn-secondary" >Datos Examenes</a></li>
+            <li id="animacionMenu"><a id="linksNombres" asp-action="GenerarVenta" asp-controller="Ventas" class="btn btn-secondary" >Servicios Medicos</a></li>
+        </ul>
+      </div>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - KlinikSystem - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    <!-- Menu Oculto (disponible en formato movil) -->
+    <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+      <div class="offcanvas-header">
+          
+      </div>
+      <div class="offcanvas-body">
+          
+        <ul>
+            <li id="animacionMenuB"><a id="linksNombresB" asp-action="Index" asp-controller="Marcas" class="btn btn-secondary" ><i class="bi bi-person-badge-fill"></i> Gestion Personal</a></li>
+            <li id="animacionMenuB"><a id="linksNombresB" asp-action="Index" asp-controller="Marcas" class="btn btn-secondary" ><i class="bi bi-building-fill"></i> Gestion Pacientes</a></li>
+            <li id="animacionMenuB"><a id="linksNombresB" asp-action="Index" asp-controller="Proveedores" class="btn btn-secondary" ><i class="bi bi-person-square"></i> Gestion Citas</a></li>
+            <li id="animacionMenuB"><a id="linksNombresB" asp-action="Index" asp-controller="Productos" class="btn btn -secondary" ><i class="bi bi-box-seam-fill"></i> Gestion Expedientes</a></li>
+            <li id="animacionMenuB"><a id="linksNombresB" asp-action="GenerarVenta" asp-controller="Ventas" class="btn btn-secondary" ><i class="bi bi-tags-fill"></i> Gestion Recetas</a></li>
+            <li id="animacionMenuB"><a id="linksNombresB" asp-action="IndexVenta" asp-controller="Ventas" class="btn btn-secondary" ><i class="bi bi-clipboard2-data-fill"></i> Gestion Laboratorio</a></li>
+            <li id="animacionMenuB"><a id="linksNombresB" asp-action="IndexVenta" asp-controller="Ventas" class="btn btn-secondary" ><i class="bi bi-clipboard2-data-fill"></i> Pruebas Examenes</a></li>
+            <li id="animacionMenuB"><a id="linksNombresB" asp-action="IndexVenta" asp-controller="Ventas" class="btn btn-secondary" ><i class="bi bi-clipboard2-data-fill"></i> Datos Examenes</a></li>
+            <li id="animacionMenuB"><a id="linksNombresB" asp-action="IndexVenta" asp-controller="Ventas" class="btn btn-secondary" ><i class="bi bi-clipboard2-data-fill"></i> Servicios Medicos</a></li>
+        </ul>
+          
+      </div>
+    </div>
+    <!-- //////////////////////////////////////// -->
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

@@ -1,0 +1,168 @@
+﻿body
+{
+	margin: 0;
+	padding: 0;
+}
+
+#contenedorLogin
+{
+	width: 100%;
+	height: 100vh;
+	background: url('https://images.pexels.com/photos/911738/pexels-photo-911738.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
+}
+
+#espacioTop
+{
+	width: 100%;
+	height: 22vh;
+	background-color: transparent;
+}
+
+#espacioBottom
+{
+	width: 100%;
+	height: 22vh;
+	background-color: transparent;
+}
+
+#centradoLogin
+{
+	display: flex;
+	justify-content: center;
+}
+
+#tarjetaLogin
+{
+	width: 700px;
+	height: 400px;
+	background-color: white;
+	border-radius: 15px;
+	box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
+	display: flex;
+	flex-direction: row;
+}
+
+#ApartadoLogin
+{
+	flex-grow: 1;
+	width: 100%;
+	height: 100%;
+}
+
+#espacioIcono
+{
+	display: flex;
+	flex-direction: column;
+	
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#espacioIcono h2
+{
+	font-family: 'Cascadia Code';
+	color: red;
+	font-size: 30px;
+	text-align:  center;
+	font-weight: 400;
+}
+
+#contencionSubtitulo
+{
+	display: flex;
+	justify-content: center;
+}
+
+#contencioP
+{
+	width: 200px;
+}
+
+#espacioIcono p
+{
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	margin-top: -10px !important;
+}
+
+#espacioInputs
+{
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+#espacioInputs input
+{
+	width: 100%;
+	height: 30px;
+	border: none;
+	border-bottom: 1px solid gray;
+	outline: none;
+	font-family: 'Cascadia Code';
+	transition: 0.5s;
+}
+
+#espacioInputs input:hover
+{
+	border-bottom: 1px solid #FF3939;
+}
+
+#apartadoBotones
+{
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	justify-content: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#centradoInput
+{
+	display: flex;
+	justify-content: center;
+}
+
+#apartadoBotones #centradoInput button
+{
+	width: 200px;
+	height: 40px;
+	font-size: 20px;
+	border-radius: 25px;
+	border: 1px solid gray;
+	background-color: white;
+	transition: 0.5s;
+	cursor: pointer;
+}
+
+#apartadoBotones #centradoInput button:hover
+{
+	background-color: #1A1A1A;
+	color: white;
+}
+
+#apartadoBotones #centradoInput a
+{
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/*-----------------------------------------------------------------------------------------*/
+#ApartadoLogo
+{
+	flex-grow: 1;
+	width: 100%;
+	height: 100%;
+	background-color: #FF3A3A;
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+}

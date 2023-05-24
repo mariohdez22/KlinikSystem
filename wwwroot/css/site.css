@@ -20,3 +20,422 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  overflow: hidden;
+}
+
+/*------------------------------------------------------------------------------------------------------------*/
+
+/* caja global del layout */
+.contenedor
+{
+    display: flex;
+    /*background: url(../img/FondoEstatico1.jpeg);*/
+    background-size: 20%;
+}
+
+/*-----------------------------------------------------*/
+
+/* barra vertical roja (mini menu) */
+.contenedor span 
+{
+    width: 65px;
+    height: 100vh;
+    background-color: #FFFFFF;
+    z-index: 1050 !important;
+    padding-top: 12px;
+    padding-left: 14px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        
+}
+
+/* boton del menu desplegable */
+#botonMenu
+{
+    border: 0px;
+    background-color: #21C7CC;
+    font-size: 20px;
+    padding: 8px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+}
+
+#botonMenu:focus
+{
+    background-color: #1EBBC0;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+#botonMenu:hover
+{
+    background-color: #1EBBC0;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+/* botones del menu barra roja*/
+#linksMenu 
+{
+    font-size: 22px;
+    padding: 7px;
+    padding-top: 2px;
+    padding-bottom: 3px;
+    border-radius: 20px;
+    border: 0px;
+    background-color: #21C7CC;
+    margin-top: 25px;
+    transition: 0.5s;
+}
+
+#linksMenu:hover
+{
+    background-color: #1EBBC0;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+/*-----------------------------------------------------*/
+
+/* caja desplegable del menu */
+#offcanvasScrolling 
+{
+    z-index: 1040 !important;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 360px;
+    overflow: hidden !important;
+}
+
+/* caja hija del desplegable */
+.offcanvas-body 
+{
+    overflow: hidden !important;
+}
+
+/* apartado inicial donde se pone titulo en el desplegable */
+.offcanvas-header 
+{
+    margin-top: 7.6vh;
+}
+
+/* botones animados con los nombres, dentro del desplegable */
+#linksNombres 
+{
+    font-size: 22px;
+    padding: 7px;
+    padding-left: 50px;
+    width: 277px;
+    padding-top: 3px;
+    padding-bottom: 4px;
+    border-radius: 4px;
+    border: 0px;
+    margin-bottom: 23px;
+    text-align: left;
+    background-color: transparent;
+    color: black;
+    z-index: 2;
+    position: relative;
+    transition: 0.2s;
+}
+
+#linksNombres:hover
+{
+    color: #1EBBC0;
+}
+
+/* basicamente el "li" de los botones*/
+#animacionMenu
+{
+    list-style: none;
+}
+
+/* el div artificial para la animacion de los nombres */
+#animacionMenu::before 
+{
+    display: inline-block;
+    content: '';
+    width: 280px;
+    height: 41px;
+    /*background: #EFEFEF;*/
+    border: 2px solid #1EBBC0;
+    position: absolute;
+    transform: translate(-96%, -1%);
+    border-radius: 20px;
+    z-index: 1 !important;
+    transition: 0.2s;
+}
+
+#animacionMenu:hover::before
+{
+    transform: translate(-5%, -1%);
+}
+
+/* basicamente es el segundo "ul" para los dos botones con nombre de abajo */
+#espacio-off
+{
+    margin-top: 13.3vh;
+}
+
+/*-------------------------------------------------*/
+
+#contenido
+{
+    padding-top: 20px;
+    padding-left: 35px;
+    padding-right: 35px;
+    max-width: 100vw;
+    /*background-color: aquamarine;*/
+}
+
+.contenedor section 
+{
+    display: none;
+}
+
+/*-------------------------------------------------*/
+
+#offcanvasTop 
+{
+    z-index: 1050 !important;
+    overflow: hidden !important;
+    height: 490px;
+}
+
+#animacionMenuB
+{
+    list-style: none;
+}
+
+#linksNombresB
+{
+    margin-left: -15px;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #E9E9E9;
+    border: 0px;
+    color: black;
+}
+
+#linksNombresB:hover
+{
+    color: white;
+    background-color: #1EBBC0;
+}
+
+/*--------------------------------------------------*/
+
+#liveToast 
+{
+    border-radius: 10px !important;
+    border: 0px !important;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px !important;
+}
+
+#headerNoti
+{
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    border: 0px !important;
+    background: linear-gradient(40deg, #219DCC, #4DE179);
+}
+
+#headerNotiUpdate
+{
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    border: 0px !important;
+    background: linear-gradient(25deg, #EBCA58, #EF5A3D);
+}
+
+/*-------------------------------------------------*/
+
+#ContenedorPrincipalContenido
+{
+    width: 100%;
+}
+
+#MenuSuperior 
+{
+    width: 100%;
+    height: auto;
+    background: linear-gradient(40deg, #21C7CC, #4DE179);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 15px;
+    padding-bottom: 6px;
+}
+
+#apartadoTituloSuperior h1
+{
+    font-size: 25px;
+    color: white;
+    font-family: 'Cascadia Code';
+}
+
+#apartadoOpcionesSuperior
+{
+    display: flex;
+}
+
+#grupoInputSuperior
+{
+    display: flex;
+    margin-right: 15px;
+}
+
+#IconoBusquedaImagen
+{
+    width: 30px;
+    height: auto;
+    padding: 2px;
+    padding-left: 6px;
+    /*background-color: red;*/
+    color: white;
+}
+
+#inputSuperior
+{
+    border: 0px;
+    border-bottom: 1px solid white;
+    background-color: transparent;
+    height: 28px;
+    width: 100%;
+    outline: none;
+}
+
+#inputSuperior::placeholder
+{
+    color: white;
+}
+
+#apartadoImagenSuperior
+{
+    background-color: #0071A5;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    border-radius: 50px;
+}
+
+/*-------------------------------------------------*/
+/* apartado del responsive ------------------------*/
+/*-------------------------------------------------*/
+
+@media screen and (max-width: 1250px) 
+{
+    /* boton del menu barra roja para espaciar*/
+    #linksMenuFinal 
+    {
+        margin-top: 10vh;
+    }
+
+    /* basicamente es el segundo "ul" para los dos botones de abajo */
+    #espacio-off 
+    {
+        margin-top: 5.7vh;
+    }
+
+}
+
+@media screen and (max-width: 1020px) 
+{
+
+    /* barra vertical roja (mini menu) */
+    .contenedor span 
+    {
+        width: 60px;
+    }
+
+}
+
+@media screen and (max-width: 768px) 
+{
+    /* barra vertical roja (mini menu) */
+    .contenedor span
+    {
+        width: 65px;
+    }
+
+}
+
+
+/* aqui empieza tamaño movil y tablet*/
+@media screen and (max-width: 725px) 
+
+{
+    .contenedor
+    {
+        flex-direction: column;
+    }
+
+    .contenedor span
+    {
+        display: none;
+    }
+
+    .contenedor section
+    {
+        display: revert;
+        width: 100%;
+        height: 50px;
+        background-color: #2F8D75;
+        padding-top: 6px;
+        padding-left: 15px;
+        z-index: 1060 !important;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    }
+
+    #contenido
+    {
+        height: 100vh;
+    }
+
+    #MenuSuperior
+    {
+        flex-direction: column;
+    }
+
+    #apartadoOpcionesSuperior
+    {
+        width: 100%;
+    }
+
+    #grupoInputSuperior
+    {
+        margin-right: 15px;
+        width: 100%;
+    }
+}
+
+
+/*
+
+    min-width = mientras el minimo sea "tantos" pixeles, se ejecutara la instruccion asignada,
+    puede utilizarse para ejecutar una configuracion una vez se a superado el limite establecido 
+    como minimo de pixeles
+
+    max-width = hasta que el maximo sea "tantos" pixeles, se ejecutara la instruccion asignada,
+    puede utilizarse para bajar los pixeles hasta que coincida con el maximo estimado
+
+*/
