@@ -52,6 +52,8 @@ public partial class Personal
 
     public virtual ICollection<Expediente> Expedientes { get; set; } = new List<Expediente>();
 
+    //----------------------------------------------------------------------------------------
+
     public virtual AreaTrabajo IdareaTrabajoNavigation { get; set; } = null!;
 
     public virtual Especialidade IdespecialidadNavigation { get; set; } = null!;
