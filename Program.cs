@@ -1,6 +1,12 @@
 using KlinikSystem.Models;
 using Microsoft.EntityFrameworkCore;
 
+using KlinikSystem.Servicios.Contrato;
+using KlinikSystem.Servicios.Implementacion;
+
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -27,6 +33,17 @@ builder.Services.AddRazorPages()
 
 //------------------------------------------------------------------------------
 
+builder.Services.AddScoped<IUsuarioServices, UsuarioServices>();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+       .AddCookie(option => 
+       {
+           option.LoginPath = "/Login/IndexLogin";
+           option.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+       });
+
+//------------------------------------------------------------------------------
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -42,10 +59,12 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Personal}/{action=IndexPersonal}/{id?}");
+    pattern: "{controller=Login}/{action=IndexLogin}/{id?}");
 
 app.Run();

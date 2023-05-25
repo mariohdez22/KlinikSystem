@@ -16,16 +16,45 @@
     <section class="contenedor">
 
         <span>
-            <button id="botonMenu" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="bi bi-list"></i></button>
-            <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Usuarios" ><i class="bi bi-person-badge-fill"></i></a>
-            <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Marcas"><i class="bi bi-building-fill"></i></a>
-            <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Proveedores"><i class="bi bi-person-square"></i></a>
-            <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Productos"><i class="bi bi-box-seam-fill"></i></a>
-            <a id="linksMenu" class="btn btn-secondary" asp-action="GenerarVenta" asp-controller="Ventas"><i class="bi bi-tags-fill"></i></a>
-            <a id="linksMenu" class="btn btn-secondary" asp-action="IndexVenta" asp-controller="Ventas"><i class="bi bi-clipboard2-data-fill"></i></a>
-            <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Usuarios" ><i class="bi bi-person-badge-fill"></i></a>
-            <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Marcas"><i class="bi bi-building-fill"></i></a>
-            <a id="linksMenu" class="btn btn-secondary" asp-action="Index" asp-controller="Proveedores"><i class="bi bi-person-square"></i></a>
+            <button id="botonMenu" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="bi bi-list"></i></button>            
+            @if (User.IsInRole("Tecnico"))
+            {
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexPersonal" asp-controller="Personal" ><i class="bi bi-person-badge-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexPacientes" asp-controller="Pacientes"><i class="bi bi-building-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexCitas" asp-controller="Citas"><i class="bi bi-person-square"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexExpedientes" asp-controller="Expedientes"><i class="bi bi-box-seam-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexRecetas" asp-controller="Recetas"><i class="bi bi-tags-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexLaboratorio" asp-controller="Laboratorios"><i class="bi bi-clipboard2-data-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexPruebas" asp-controller="Pruebas" ><i class="bi bi-person-badge-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexDatos" asp-controller="Datos"><i class="bi bi-building-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexServicios" asp-controller="Servicios"><i class="bi bi-person-square"></i></a>
+            }
+            else if(User.IsInRole("Medicina"))
+            {
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexExpedientes" asp-controller="Expedientes"><i class="bi bi-box-seam-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexRecetas" asp-controller="Recetas"><i class="bi bi-tags-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexLaboratorio" asp-controller="Laboratorios"><i class="bi bi-clipboard2-data-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexServicios" asp-controller="Servicios"><i class="bi bi-person-square"></i></a>
+            }
+            else if(User.IsInRole("Secretaria"))
+            {
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexPersonal" asp-controller="Personal" ><i class="bi bi-person-badge-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexPacientes" asp-controller="Pacientes"><i class="bi bi-building-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexCitas" asp-controller="Citas"><i class="bi bi-person-square"></i></a>
+            }
+            else if(User.IsInRole("Laboratorios"))
+            {
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexExpedientes" asp-controller="Expedientes"><i class="bi bi-box-seam-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexLaboratorio" asp-controller="Laboratorios"><i class="bi bi-clipboard2-data-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexPruebas" asp-controller="Pruebas" ><i class="bi bi-person-badge-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexDatos" asp-controller="Datos"><i class="bi bi-building-fill"></i></a>
+            }
+            else if(User.IsInRole("Servicios"))
+            {
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexExpedientes" asp-controller="Expedientes"><i class="bi bi-box-seam-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexServicios" asp-controller="Servicios"><i class="bi bi-person-square"></i></a>
+            }
+            
         </span>
 
         <!-- Menu Oculto (disponible en formato movil) -->
@@ -44,7 +73,9 @@
                         <div id="IconoBusquedaImagen"><i class="bi bi-search"></i></div>
                         <input id="inputSuperior" placeholder="Buscar Departamento" />
                     </div>
-                    <div id="apartadoImagenSuperior"></div>
+                    <div id="apartadoImagenSuperior">
+                        <img src="https://i.guim.co.uk/img/media/ef8492feb3715ed4de705727d9f513c168a8b196/37_0_1125_675/master/1125.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=d456a2af571d980d8b2985472c262b31" width="30" height="30" />
+                    </div>
                 </div>
             </div>
             <div id="contenido" class="container">
@@ -59,16 +90,44 @@
     <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
       <div class="offcanvas-header"></div>   
       <div class="offcanvas-body">
-        <ul>
-            <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Usuarios" class="btn btn-secondary" >Gestion Personal</a></li>
-            <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Marcas" class="btn btn-secondary" >Gestion Pacientes</a></li>
-            <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Proveedores" class="btn btn-secondary" >Gestion Citas</a></li>
-            <li id="animacionMenu"><a id="linksNombres" asp-action="IndexVenta" asp-controller="Ventas" class="btn btn-secondary" >Gestion Expedientes</a></li>
-            <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Productos" class="btn btn-secondary" >Gestion Recetas</a></li>
-            <li id="animacionMenu"><a id="linksNombres" asp-action="IndexVenta" asp-controller="Ventas" class="btn btn-secondary" >Gestion Laboratorio</a></li>
-            <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Proveedores" class="btn btn-secondary" >Pruebas Examenes</a></li>
-            <li id="animacionMenu"><a id="linksNombres" asp-action="Index" asp-controller="Productos" class="btn btn-secondary" >Datos Examenes</a></li>
-            <li id="animacionMenu"><a id="linksNombres" asp-action="GenerarVenta" asp-controller="Ventas" class="btn btn-secondary" >Servicios Medicos</a></li>
+        <ul>           
+            @if (User.IsInRole("Tecnico"))
+            {
+                <li id="animacionMenu"><a id="linksNombres" asp-action="IndexPersonal" asp-controller="Personal" class="btn btn-secondary" >Gestion Personal</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="IndexPacientes" asp-controller="Pacientes" class="btn btn-secondary" >Gestion Pacientes</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="IndexCitas" asp-controller="Citas" class="btn btn-secondary" >Gestion Citas</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="IndexExpedientes" asp-controller="Expedientes" class="btn btn-secondary" >Gestion Expedientes</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="IndexRecetas" asp-controller="Recetas" class="btn btn-secondary" >Gestion Recetas</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="IndexLaboratorio" asp-controller="Laboratorios" class="btn btn-secondary" >Gestion Laboratorio</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="IndexPruebas" asp-controller="Pruebas" class="btn btn-secondary" >Pruebas Examenes</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="IndexDatos" asp-controller="Datos" class="btn btn-secondary" >Datos Examenes</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="IndexServicios" asp-controller="Servicios" class="btn btn-secondary" >Servicios Medicos</a></li>
+            }
+            else if(User.IsInRole("Medicina"))
+            {
+                <li id="animacionMenu"><a id="linksNombres" asp-action="IndexExpedientes" asp-controller="Expedientes" class="btn btn-secondary" >Gestion Expedientes</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="IndexRecetas" asp-controller="Recetas" class="btn btn-secondary" >Gestion Recetas</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="IndexLaboratorio" asp-controller="Laboratorios" class="btn btn-secondary" >Gestion Laboratorio</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="IndexServicios" asp-controller="Servicios" class="btn btn-secondary" >Servicios Medicos</a></li>
+            }
+            else if(User.IsInRole("Secretaria"))
+            {
+                <li id="animacionMenu"><a id="linksNombres" asp-action="IndexPersonal" asp-controller="Personal" class="btn btn-secondary" >Gestion Personal</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="IndexPacientes" asp-controller="Pacientes" class="btn btn-secondary" >Gestion Pacientes</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="IndexCitas" asp-controller="Citas" class="btn btn-secondary" >Gestion Citas</a></li>
+            }
+            else if(User.IsInRole("Laboratorios"))
+            {
+                <li id="animacionMenu"><a id="linksNombres" asp-action="IndexExpedientes" asp-controller="Expedientes" class="btn btn-secondary" >Gestion Expedientes</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="IndexLaboratorio" asp-controller="Laboratorios" class="btn btn-secondary" >Gestion Laboratorio</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="IndexPruebas" asp-controller="Pruebas" class="btn btn-secondary" >Pruebas Examenes</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="IndexDatos" asp-controller="Datos" class="btn btn-secondary" >Datos Examenes</a></li>
+            }
+            else if(User.IsInRole("Servicios"))
+            {
+                <li id="animacionMenu"><a id="linksNombres" asp-action="IndexExpedientes" asp-controller="Expedientes" class="btn btn-secondary" >Gestion Expedientes</a></li>
+                <li id="animacionMenu"><a id="linksNombres" asp-action="IndexServicios" asp-controller="Servicios" class="btn btn-secondary" >Servicios Medicos</a></li>
+            }
         </ul>
       </div>
     </div>
@@ -81,15 +140,15 @@
       <div class="offcanvas-body">
           
         <ul>
-            <li id="animacionMenuB"><a id="linksNombresB" asp-action="Index" asp-controller="Marcas" class="btn btn-secondary" ><i class="bi bi-person-badge-fill"></i> Gestion Personal</a></li>
-            <li id="animacionMenuB"><a id="linksNombresB" asp-action="Index" asp-controller="Marcas" class="btn btn-secondary" ><i class="bi bi-building-fill"></i> Gestion Pacientes</a></li>
-            <li id="animacionMenuB"><a id="linksNombresB" asp-action="Index" asp-controller="Proveedores" class="btn btn-secondary" ><i class="bi bi-person-square"></i> Gestion Citas</a></li>
-            <li id="animacionMenuB"><a id="linksNombresB" asp-action="Index" asp-controller="Productos" class="btn btn -secondary" ><i class="bi bi-box-seam-fill"></i> Gestion Expedientes</a></li>
-            <li id="animacionMenuB"><a id="linksNombresB" asp-action="GenerarVenta" asp-controller="Ventas" class="btn btn-secondary" ><i class="bi bi-tags-fill"></i> Gestion Recetas</a></li>
-            <li id="animacionMenuB"><a id="linksNombresB" asp-action="IndexVenta" asp-controller="Ventas" class="btn btn-secondary" ><i class="bi bi-clipboard2-data-fill"></i> Gestion Laboratorio</a></li>
-            <li id="animacionMenuB"><a id="linksNombresB" asp-action="IndexVenta" asp-controller="Ventas" class="btn btn-secondary" ><i class="bi bi-clipboard2-data-fill"></i> Pruebas Examenes</a></li>
-            <li id="animacionMenuB"><a id="linksNombresB" asp-action="IndexVenta" asp-controller="Ventas" class="btn btn-secondary" ><i class="bi bi-clipboard2-data-fill"></i> Datos Examenes</a></li>
-            <li id="animacionMenuB"><a id="linksNombresB" asp-action="IndexVenta" asp-controller="Ventas" class="btn btn-secondary" ><i class="bi bi-clipboard2-data-fill"></i> Servicios Medicos</a></li>
+            <li id="animacionMenuB"><a id="linksNombresB" asp-action="IndexPersonal" asp-controller="Personal" class="btn btn-secondary" ><i class="bi bi-person-badge-fill"></i> Gestion Personal</a></li>
+            <li id="animacionMenuB"><a id="linksNombresB" asp-action="IndexPacientes" asp-controller="Pacientes" class="btn btn-secondary" ><i class="bi bi-building-fill"></i> Gestion Pacientes</a></li>
+            <li id="animacionMenuB"><a id="linksNombresB" asp-action="IndexCitas" asp-controller="Citas" class="btn btn-secondary" ><i class="bi bi-person-square"></i> Gestion Citas</a></li>
+            <li id="animacionMenuB"><a id="linksNombresB" asp-action="IndexExpedientes" asp-controller="Expedientes" class="btn btn -secondary" ><i class="bi bi-box-seam-fill"></i> Gestion Expedientes</a></li>
+            <li id="animacionMenuB"><a id="linksNombresB" asp-action="IndexRecetas" asp-controller="Recetas" class="btn btn-secondary" ><i class="bi bi-tags-fill"></i> Gestion Recetas</a></li>
+            <li id="animacionMenuB"><a id="linksNombresB" asp-action="IndexLaboratorio" asp-controller="Laboratorios" class="btn btn-secondary" ><i class="bi bi-clipboard2-data-fill"></i> Gestion Laboratorio</a></li>
+            <li id="animacionMenuB"><a id="linksNombresB" asp-action="IndexPruebas" asp-controller="Pruebas" class="btn btn-secondary" ><i class="bi bi-clipboard2-data-fill"></i> Pruebas Examenes</a></li>
+            <li id="animacionMenuB"><a id="linksNombresB" asp-action="IndexDatos" asp-controller="Datos" class="btn btn-secondary" ><i class="bi bi-clipboard2-data-fill"></i> Datos Examenes</a></li>
+            <li id="animacionMenuB"><a id="linksNombresB" asp-action="IndexServicios" asp-controller="Servicios" class="btn btn-secondary" ><i class="bi bi-clipboard2-data-fill"></i> Servicios Medicos</a></li>
         </ul>
           
       </div>

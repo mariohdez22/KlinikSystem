@@ -3,6 +3,7 @@ using KlinikSystem.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using KlinikSystem.Recursos;
 #pragma warning disable
 
 namespace KlinikSystem.Controllers
@@ -194,6 +195,7 @@ namespace KlinikSystem.Controllers
             {
                 if (personal.obPersonal.Idpersonal == 0)
                 {
+                    personal.obPersonal.Contrasena = Utilidades.EncriptarClave(personal.obPersonal.Contrasena);
                     _baseDatos.Personals.Add(personal.obPersonal);
                     await _baseDatos.SaveChangesAsync();
                     TempData["MensajeCrear"] = "El usuario se agrego correctamente";
@@ -201,6 +203,7 @@ namespace KlinikSystem.Controllers
                 }
                 else
                 {
+                    personal.obPersonal.Contrasena = Utilidades.EncriptarClave(personal.obPersonal.Contrasena);
                     _baseDatos.Personals.Update(personal.obPersonal);
                     await _baseDatos.SaveChangesAsync();
                     TempData["MensajeActualizar"] = "El usuario se actualizo correctamente";

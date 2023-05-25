@@ -35,33 +35,54 @@
 
                                 </div>
 
-                            </div>
+                            </div>                    
 
                         </div>
 
-                        <div id="espacioInputs">
+                        <form asp-controller="Login" asp-action="IndexLogin" method="post">   
 
-                            <input placeholder="Usuario" />
+                            <div id="espacioInputs">
 
-                            <input placeholder="Contraseña" />
+                                <input placeholder="Correo" name="correo" type="text" required />
 
-                        </div>
+                                <input placeholder="Contraseña" name="clave" type="password" required />
 
-                        <div id="apartadoBotones">
+                            </div>                        
 
-                            <div id="centradoInput">
+                            <div id="apartadoBotones">
 
-                                <button type="submit"><i class="bi bi-arrow-right-circle-fill"></i> Ingresar</button>
+                                <div id="centradoInput">
+
+                                    <button type="submit"><i class="bi bi-arrow-right-circle-fill"></i> Ingresar</button>
+
+                                </div>
+
+                                <div id="centradoInput">
+
+                                    <a>¿Olvidaste tu Contraseña?</a>
+
+                                </div>
 
                             </div>
 
-                            <div id="centradoInput">
+                            @if (ViewData["Mensaje"] != null)
+                            {
+                                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                                    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                                        <div id="headerNoti" class="toast-header bg-info text-white">
+                                            <i class="bi bi-capsule-pill"></i>
+                                            <strong class="me-auto">&nbsp;Klinik System</strong>
+                                            <small>@DateTime.Now</small>
+                                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                        </div>
+                                        <div class="toast-body">
+                                            @TempData["Mensaje"]
+                                        </div>
+                                    </div>
+                                </div>
+                            }
 
-                                <a>¿Olvidaste tu Contraseña?</a>
-
-                            </div>
-
-                        </div>
+                        </form>
 
                     </div>
 
@@ -80,6 +101,10 @@
         <div id="espacioBottom"></div>
 
     </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 
 </body>
 </html>
