@@ -99,6 +99,30 @@
     border: 0px;
 }
 
+#tituloMenu
+{
+    background-color: #FCFFE3;
+    border: 1px solid #9AA0D4;
+    border-radius: 25px;
+    height: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 2px;
+    margin-right: 10px;
+}
+
+#tituloMenu p
+{
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+}
+
+#tituloMenu strong
+{
+    font-weight: 400;
+    color: #5A67D3;
+}
+
 /*o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o*/
 /*apartado componentes 2*/
 
@@ -290,7 +314,7 @@
 
 #tarjetaRegistros
 {
-    width: 325px;
+    width: 440px;
     height: min-content;
     /*background-color: aquamarine;*/
     border-radius: 15px;
@@ -327,9 +351,15 @@
 
 #encabezadoRegistros h2
 {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 20px;
     color: #444444;
+}
+
+#encabezadoRegistros strong
+{
+    font-weight: 400;
+    color: crimson;
 }
 
 #tipoRegistros
@@ -505,7 +535,6 @@
     {
         height: min-content;
         border-radius: 25px;
-
         flex-direction: column-reverse;
         justify-content: left;
     }
@@ -536,7 +565,6 @@
     {
         border-radius: 25px;
     }
-
 }
 
 @media screen and (max-width: 709px)
@@ -550,7 +578,6 @@
     #botonesMenu
     {
         width: 100%;
-
         gap: 15px;
     }
 
@@ -612,71 +639,5 @@
     #botonesMenu
     {
         flex-direction: column;
-    }
-
-}
-
-/*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*/
-/*responsive de los registros*/
-
-@media screen and (max-width: 1246px)
-{
-    #contenedorRegistrosFormulario
-    {
-        height: 57vh;
-    }
-}
-
-@media screen and (max-width: 630px)
-{
-    #contenedorGeneralFormulario
-    {
-        overflow-y: scroll;
-        width: 100%;
-        height: 60vh;
-    }
-}
-
-@media screen and (max-width: 321px)
-{
-    #tarjetaRegistros
-    {
-        width: 220px;
-    }
-
-    #datoRegistros
-    {
-        width: 80%;
-    }
-
-    #atributoRegistro
-    {
-        overflow-x: hidden;
-        width: 78%;
-    }
-}
-
-/*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*/
-/*apartado inputs para actualizacion*/
-
-@media screen and (max-width: 725px)
-{
-    #tarjetaInputsRegistros
-    {
-        width: 100%;
-        flex-direction: column;
-    }
-
-    #contenedorGeneralFormulario
-    {
-        overflow-y: scroll;
-        width: 100%;
-        height: 60vh;
-        padding-bottom: 30px;
-    }
-
-    #contenedorInputsRegistros
-    {
-        overflow-y: scroll;
     }
 }

@@ -1,0 +1,194 @@
+﻿
+@{
+    ViewData["Title"] = "IndexLaboratorio";
+    ViewData["VistaKlinik"] = "ADMINISTRACION DEL LABORATORIO";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Estilos
+{
+    <link rel="stylesheet" href="~/css/VistaMuestra/LaboratorioMuestra.css" asp-append-version="true" />
+}
+
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*Apartado del indice de operaciones del formulario /////////////////////////////////////////////////*@
+
+    <div id="indiceFormulario">
+        <p>Klinik System > Gestion de examenes de laboratorio</p>
+    </div>
+
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*Apartado del menu de opciones del formulario //////////////////////////////////////////////////////*@
+
+<div id="contenedorGeneralFormulario">    
+
+    <div id="contenedorMenusFormulario"> 
+
+        <div id="opcionesMenu1">  @*espacio para agregar opciones en el filtro mmmmmmmmmmmmmmmmmmmmmm*@
+
+            <div id="filtroMenu">
+
+                <div id="iconoFiltro">
+                    <i class="bi bi-funnel-fill"></i>
+                </div>
+
+                <div id="grupoSelectFiltro">
+                    <div id="iconoSelect">
+                        <i class="bi bi-person-fill-exclamation"></i>
+                    </div>
+                    <select id="selectFiltro" class="filtroAreaTrabajo" onclick="SelectIndiceArea()" asp-items="ViewBag.AreaTrabajo">
+                        <option>Estado de Laboratorio...</option>
+                    </select>
+                </div>
+
+                <div id="tituloMenu">
+
+                    <p> Registros - <strong>Generales</strong> </p>
+
+                </div>
+
+            </div>
+            <div id="generalidadesMenu">
+
+                <div id="estadosMenu" class="perfilEstado">
+                    
+                    <p>Estado: <strong>General</strong> </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="opcionesMenu2"> @*espacio para agregar botones en las opciones mmmmmmmmmmmmmmmmmmmmm*@
+
+            <div id="botonesMenu">
+
+                <a asp-action="AgregarPersonal" asp-controller="Personal" asp-route-idpersonal="0" id="botonMenuAgregar"><i class="bi bi-check-circle-fill"></i> Agregar Registros</a>
+
+                <a id="botonMenuImprimir"><i class="bi bi-file-earmark-pdf-fill"></i> Imprimir Registros</a>
+
+            </div>
+
+            <div id="inputMenu">
+
+                <form asp-controller="Personal" asp-action="IndexPersonal">
+
+                    <div id="grupoInputBuscar">
+
+                        <div id="iconoBuscarMenu"><i class="bi bi-search"></i></div>
+                        <input name="buscar" type="text" placeholder="Buscar Registro"/>
+                    
+                    </div>
+                
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*Apartado del contenedor de registros del formulario ///////////////////////////////////////////////*@
+
+    <div id="contenedorRegistrosFormulario">
+
+        @*espacio para agregar tarjetas de registros mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*@
+
+            <div id="tarjetaRegistros"> @*id que sirve para modificar el tamaño de la tarjeta*@
+
+                <div id="encabezadoRegistros">                    
+
+                    <h2>Cod.Lab: <strong>HHOP2032</strong></h2>
+
+                    <div id="tipoRegistros">
+
+                        <p>Expediente: PPOUTH</p>
+
+                    </div>
+
+                </div>
+
+                <div id="cuerpoRegistros"> @*sirve para modificar la alinacion de los contenedores*@
+                
+                    @*espacio para agregar contenedores para datos mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*@
+
+                    <div id="contenedorDatosRegistros">
+
+                        @*agregar este nombre "datoRegistrosModificado" al componente que se quiera 
+                        modificar y cambiarle el tamaño *@
+
+                        <div id="datoRegistros">
+
+                            <div id="iconoRegistro"><i class="bi bi-person-vcard-fill"></i></div>
+
+                            <div id="atributoRegistro">
+                                <p>3455466446</p>
+                            </div>
+
+                        </div>
+
+                        <div id="datoRegistros">
+
+                            <div id="iconoRegistro"><i class="bi bi-person-circle"></i></div>
+
+                            <div id="atributoRegistro">
+                                <p>vevevevevevevev</p>
+                            </div>
+
+                        </div>                        
+
+                    </div>
+
+                    <div id="contenedorDatosRegistros">
+
+                        @*agregar este nombre "datoRegistrosModificado" al componente que se quiera 
+                        modificar y cambiarle el tamaño *@
+
+                        <div id="datoRegistros">
+
+                            <div id="iconoRegistro"><i class="bi bi-person-vcard-fill"></i></div>
+
+                            <div id="atributoRegistro">
+                                <p>3455466446</p>
+                            </div>
+
+                        </div>
+
+                        <div id="datoRegistros">
+
+                            <div id="iconoRegistro"><i class="bi bi-person-circle"></i></div>
+
+                            <div id="atributoRegistro">
+                                <p>vevevevevevevev</p>
+                            </div>
+
+                        </div>                        
+
+                    </div>
+
+                    @*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*@
+
+                </div>
+
+                <div id="pieRegistros">
+
+                    <a asp-action="AgregarPersonal" asp-controller="Personal" asp-route-idpersonal="" id="botonPieRegistro"><i class="bi bi-pencil-square"></i> Editar</a>
+
+                    <a id="botonPieRegistro"><i class="bi bi-x-circle-fill"></i> Suspender</a>
+
+                </div>
+
+            </div>                
+
+        @*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*@
+
+    </div>
+
+</div>
+
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
