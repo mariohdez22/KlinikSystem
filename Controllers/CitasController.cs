@@ -81,7 +81,7 @@ namespace KlinikSystem.Controllers
         //-------------------------------------------------------------------------------
 
         [HttpGet]
-        public async Task<IActionResult> AgregarCita(int IDcita)
+        public async Task<IActionResult> AgregarCita(int IDcitas)
         {
             CitasVM citas = new CitasVM()
             {
@@ -113,9 +113,9 @@ namespace KlinikSystem.Controllers
                 }).ToListAsync()
             };
 
-            if (IDcita != 0)
+            if (IDcitas != 0)
             {
-                citas.obCitas = await _baseDatos.Citas.FindAsync(IDcita);
+                citas.obCitas = await _baseDatos.Citas.FindAsync(IDcitas);
             }
 
             return View(citas);

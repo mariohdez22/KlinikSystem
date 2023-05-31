@@ -59,7 +59,7 @@
 
             <div id="botonesMenu">
 
-                <a asp-action="AgregarCita" asp-controller="Citas" asp-route-idpersonal="0" id="botonMenuAgregar"><i class="bi bi-check-circle-fill"></i> Agregar Registros</a>
+                <a asp-action="AgregarCita" asp-controller="Citas" asp-route-idcitas="0" id="botonMenuAgregar"><i class="bi bi-check-circle-fill"></i> Agregar Registros</a>
 
                 <a id="botonMenuImprimir"><i class="bi bi-file-earmark-pdf-fill"></i> Imprimir Registros</a>
 
@@ -67,7 +67,7 @@
 
             <div id="inputMenu">
 
-                <form asp-controller="Citas" asp-action="IndexCita">
+                <form asp-controller="Citas" asp-action="IndexCitas">
 
                     <div id="grupoInputBuscar">
 
@@ -199,7 +199,7 @@
 
                 <div id="pieRegistros">
 
-                    <a asp-action="AgregarCita" asp-controller="Citas" asp-route-idpersonal="@item.Idcitas" id="botonPieRegistro"><i class="bi bi-pencil-square"></i> Editar</a>
+                    <a asp-action="AgregarCita" asp-controller="Citas" asp-route-idcitas="@item.Idcitas" id="botonPieRegistro"><i class="bi bi-pencil-square"></i> Editar</a>
 
                     <a id="botonPieRegistro"><i class="bi bi-x-circle-fill"></i> Suspender</a>
 

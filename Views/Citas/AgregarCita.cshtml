@@ -30,9 +30,9 @@ else
 @*///////////////////////////////////////////////////////////////////////////////////////////////////*@
 @*Apartado del menu de opciones del formulario //////////////////////////////////////////////////////*@
 
-<form asp-action="AgregarCita" asp-controller="Citas">
+<form asp-action="AgregarCita" asp-controller="Citas" method="post">
 
-    <input type="text" asp-for="obCitas.Idcitas" />
+    <input type="text" asp-for="obCitas.Idcitas"/>
 
     <div id="contenedorGeneralFormulario">
 
@@ -202,5 +202,5 @@ else
 
 @section Scripts
     {
-    <script src="~/js/Controladores/Personal.js" asp-append-version="true"></script>
+    <script src="~/js/Controladores/Cita.js" asp-append-version="true"></script>
 }
