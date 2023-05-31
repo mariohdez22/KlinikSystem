@@ -1,0 +1,196 @@
+﻿    @model KlinikSystem.Models.ViewModels.PacienteVM
+@{
+    ViewData["Title"] = "AgregarPaciente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Estilos
+{
+    <link rel="stylesheet" href="~/css/VistaIngreso/PacienteIngreso.css" asp-append-version="true" />
+}
+
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*Apartado del indice de operaciones del formulario /////////////////////////////////////////////////*@
+
+    @if (Model.obPaciente.Idpaciente == 0)
+    {
+        <div id="indiceFormulario">
+            <p>Klinik System > Gestion de pacientes general > Ingreso de Paciente</p>
+        </div>
+    }
+    else
+    {
+        <div id="indiceFormulario">
+            <p>Klinik System > Gestion de pacientes general > Actualizacion de Paciente</p>
+        </div>
+    }
+
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*Apartado del menu de opciones del formulario //////////////////////////////////////////////////////*@
+
+<form asp-action="AgregarPaciente" asp-controller="Pacientes">
+
+<input type="hidden" asp-for="obPaciente.Idpaciente"/>
+
+<div id="contenedorGeneralFormulario">
+
+    <div id="contenedorMenusFormulario">
+
+        <div id="opcionesMenu1">  @*espacio para agregar opciones en el filtro mmmmmmmmmmmmmmmmmmmmmm*@
+
+            <div id="filtroMenu">
+
+                <div id="tituloMenu">
+                    
+                    @if (Model.obPaciente.Idpaciente == 0)
+                    {
+                         <p>Agregar Registros - <strong>Paciente</strong> </p>
+                    }
+                    else
+                    {
+                         <p>Modificar Registros - <strong>Paciente</strong> </p>
+                    }
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="opcionesMenu2"> @*espacio para agregar botones en las opciones mmmmmmmmmmmmmmmmmmmmm*@
+
+            <div id="botonesMenu">
+
+                @if (Model.obPaciente.Idpaciente == 0)
+                {
+                    <button onclick="VerificacionInputs()" type="submit" id="botonMenuAgregar"><i class="bi bi-plus-circle-fill"></i> Ingresar Registros</button>
+                }
+                else
+                {
+                    <button onclick="VerificacionInputs()" type="submit" id="botonMenuAgregar"><i class="bi bi-plus-circle-fill"></i> Actualizar Registros</button>
+                }
+
+                <a asp-action="IndexPacientes" asp-controller="Pacientes" id="botonMenuImprimir"><i class="bi bi-box-arrow-left"></i> Ir a los Registros</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*Apartado del contenedor de inputs para ingreso del formulario /////////////////////////////////////*@
+
+    <div id="contenedorInputsRegistros">
+
+        <div id="tarjetaInputsRegistros">
+
+            <div id="apartadoInputsRegistro">
+
+                <div id="grupoInputRegistro">
+                    <div id="iconoInputRegistro"><i class="bi bi-person-fill-add"></i></div>
+                    <input asp-for="obPaciente.Nombre" type="text" placeholder="Agregar Nombre"/>
+                </div>
+
+                <div id="grupoInputRegistro">
+                    <div id="iconoInputRegistro"><i class="bi bi-person-vcard-fill"></i></div>
+                    <input asp-for="obPaciente.Dui" type="text" placeholder="Agregar DUI"/>
+                </div>
+                
+                
+
+                <div id="grupoInputRegistro">
+                    <div id="iconoInputRegistro"><i class="bi bi-telephone-plus-fill"></i></div>
+                    <input asp-for="obPaciente.Celular" placeholder="Agregar Celular"/>
+                </div>
+
+                <div id="grupoInputRegistro">
+                    <div id="iconoInputRegistro"><i class="bi bi-envelope-plus-fill"></i></div>
+                        <input asp-for="obPaciente.Correo" placeholder="Agregar Correo" />
+                </div>
+
+            </div>
+
+            <div id="apartadoInputsRegistro">
+
+                <div id="grupoInputRegistro">
+                    <div id="iconoInputRegistro"><i class="bi bi-shield-fill-plus"></i></div>
+                        <input asp-for="obPaciente.Contrasena" type="password" placeholder="Agregar Contraseña" />
+                </div>
+
+                <div id="grupoInputRegistro">
+                    <div id="iconoInputRegistro"><i class="bi bi-image-fill"></i></div>
+                    <input asp-for="obPaciente.FechaNacimiento" placeholder="Agregar Imagen"/>
+                </div>
+
+                
+
+                <div id="grupoInputRegistro">
+                    <div id="iconoInputRegistro"><i class="bi bi-person-fill-exclamation"></i></div>
+                        <select asp-for="obPaciente.IdestadoPaciente" asp-items="@Model.listaEstadoPaciente">
+                        <option>Estado Personal</option>
+                    </select>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</form>
+
+
+@if (TempData["MensajeCrear"] != null)
+{
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div id="headerNoti" class="toast-header bg-info text-white">
+                <i class="bi bi-capsule-pill"></i>
+                <strong class="me-auto">&nbsp;Klinik System</strong>
+                <small>@DateTime.Now</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                @TempData["MensajeCrear"]
+            </div>
+        </div>
+    </div>
+
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div id="headerNotiError" class="toast-header bg-info text-white">
+                <i class="bi bi-heart-pulse-fill"></i>
+                <strong class="me-auto">&nbsp;&nbsp;<label id="tituloError"><strong>@TempData["Error"]</strong></label></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div id="alertaError" class="toast-body">
+                <span asp-validation-for="obPaciente.Nombre" id="spanError"></span>
+                <span asp-validation-for="obPaciente.Dui" id="spanError"></span>
+                
+                <span asp-validation-for="obPaciente.Celular" id="spanError"></span>
+                <span asp-validation-for="obPaciente.Correo" id="spanError"></span>
+                <span asp-validation-for="obPaciente.Contrasena" id="spanError"></span>
+                
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts
+{
+    <script src="~/js/Controladores/Paciente.js" asp-append-version="true"></script>
+}
+
+
+
+

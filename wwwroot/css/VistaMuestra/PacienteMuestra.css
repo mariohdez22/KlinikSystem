@@ -1,0 +1,656 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap');
+
+/*###################################################################################################*/
+/*apartado indice*/
+
+#indiceFormulario {
+    margin-bottom: 20px;
+}
+
+    #indiceFormulario p {
+        font-family: 'Raleway', sans-serif;
+    }
+
+/*###################################################################################################*/
+/*apartado menu*/
+
+#contenedorMenusFormulario {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*apartado interno 1*/
+
+#opcionesMenu1 {
+    background-color: #ECEEFF;
+    width: 100%;
+    height: 45px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    margin-bottom: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/*o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o*/
+/*apartado componentes 1*/
+
+#filtroMenu {
+    width: auto;
+    height: 100%;
+    background-color: white;
+    border: 1px solid #C1C1C1;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    padding: 6px;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+#iconoFiltro {
+    width: 33px;
+    height: 100%;
+    padding-top: 5px;
+    padding-left: 8px;
+    background-color: #B6BEFF;
+    border-radius: 25px;
+    margin-right: 15px;
+}
+
+#grupoSelectFiltro {
+    display: flex;
+    border-radius: 25px;
+    border: 1px solid #AFAFAF;
+    padding: 3px;
+    padding-right: 10px;
+    padding-left: 4px;
+    margin-right: 15px;
+}
+
+#iconoSelect {
+    width: 25px;
+    height: 100%;
+    padding-left: 4px;
+    background-color: #2C2C2C;
+    border-radius: 25px;
+    color: white;
+    margin-right: 6px;
+}
+
+#selectFiltro {
+    outline: none;
+    border: 0px;
+}
+
+/*o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o*/
+/*apartado componentes 2*/
+
+#generalidadesMenu {
+    /*background-color: antiquewhite;*/
+    width: auto;
+    height: 100%;
+    padding: 6px;
+    display: flex;
+    flex-direction: row;
+}
+
+#estadosMenu {
+    background-color: white;
+    border: 1px solid #9AA0D4;
+    border-radius: 25px;
+    height: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 2px;
+    margin-left: 15px;
+}
+
+    #estadosMenu p {
+        font-family: 'Raleway', sans-serif;
+        font-size: 20px;
+    }
+
+    #estadosMenu strong {
+        font-weight: 400;
+        color: #838DDF;
+    }
+
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*apartado interno 2*/
+
+#opcionesMenu2 {
+    background: linear-gradient(40deg, #B4F5FF, #C7B4FF);
+    width: 100%;
+    height: 45px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/*o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o*/
+/*apartado componentes 1*/
+
+#botonesMenu {
+    height: 100%;
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+}
+
+#botonMenuAgregar {
+    width: auto;
+    height: 100%;
+    padding: 2px;
+    padding-left: 6px;
+    padding-right: 8px;
+    background-color: #75A5EC;
+    color: white;
+    border-radius: 25px;
+    margin-right: 15px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#botonMenuImprimir {
+    width: auto;
+    height: 100%;
+    padding: 2px;
+    padding-left: 6px;
+    padding-right: 8px;
+    background-color: #CC8FE7;
+    color: white;
+    border-radius: 25px;
+    margin-right: 15px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/*o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o*/
+/*apartado componentes 2*/
+
+#inputMenu {
+    padding: 8px;
+}
+
+#grupoInputBuscar {
+    width: auto;
+    height: 100%;
+    padding: 3px;
+    border-radius: 25px;
+    padding-right: 3px;
+    background-color: white;
+    display: flex;
+}
+
+#iconoBuscarMenu {
+    width: 24px;
+    height: 100%;
+    background-color: #9068E5;
+    border-radius: 25px;
+    margin-right: 10px;
+    padding-left: 5px;
+    color: white;
+}
+
+#grupoInputBuscar input {
+    border: 0px;
+    border-radius: 25px;
+    height: 100%;
+    background-color: transparent;
+    outline: none;
+    width: 250px;
+}
+
+/*###################################################################################################*/
+/*apartado registros*/
+
+#contenedorRegistrosFormulario {
+    width: 100%;
+    padding: 5px;
+    overflow-y: scroll;
+    height: 60vh;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+    #contenedorRegistrosFormulario::-webkit-scrollbar {
+        -webkit-appearance: none;
+    }
+
+        #contenedorRegistrosFormulario::-webkit-scrollbar:vertical {
+            width: 10px;
+        }
+
+    #contenedorRegistrosFormulario::-webkit-scrollbar-button:increment, #scroll::-webkit-scrollbar-button {
+        display: none;
+    }
+
+    #contenedorRegistrosFormulario::-webkit-scrollbar:horizontal {
+        height: 10px;
+    }
+
+    #contenedorRegistrosFormulario::-webkit-scrollbar-thumb {
+        background-color: #DFDFDF;
+        border-radius: 20px;
+        border: 2px solid #f1f2f3;
+    }
+
+    #contenedorRegistrosFormulario::-webkit-scrollbar-track {
+        border-radius: 10px;
+    }
+
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*apartado interno 1*/
+
+#tarjetaRegistros {
+    width: 325px;
+    height: min-content;
+    /*background-color: aquamarine;*/
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+/*o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o*/
+/*apartado componentes 1*/
+
+#encabezadoRegistros {
+    width: 100%;
+    border-bottom: 1px solid #CECECE;
+    /*background-color: #F5F0FF;*/
+    padding: 6px;
+    padding-top: 14px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center, baseline;
+    gap: 5px;
+}
+
+#imagenRegistro {
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    background-color: #69D098;
+    overflow: hidden;
+}
+
+#encabezadoRegistros h2 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    color: #444444;
+}
+
+#tipoRegistros {
+    width: auto;
+    padding-left: 8px;
+    padding-right: 8px;
+    height: 25px;
+    border-radius: 25px;
+    background-color: #AD5DE0;
+}
+
+    #tipoRegistros p {
+        color: white;
+    }
+
+/*o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o*/
+/*apartado componentes 2*/
+
+#cuerpoRegistros {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+#contenedorDatosRegistros {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#datoRegistros {
+    background-color: #F3EDFF;
+    border: 1px solid #D7BFFF;
+    border-radius: 25px;
+    width: 100%;
+    height: 28px;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+}
+
+/* si se va a agrandar el componente, utilizar esta clase "#datoRegistrosModificado"*/
+#datoRegistrosModificado {
+    background-color: #F3EDFF;
+    border: 1px solid #D7BFFF;
+    border-radius: 15px; /*si se alarga el height, ajustar el border radius */
+    width: 100%;
+    height: min-content; /*height para modificar tamaño (adaptable: min-content | fijo: 50px) */
+
+    display: flex;
+    gap: 8px;
+}
+
+#iconoRegistro {
+    width: 26px;
+    height: 100%;
+    border-radius: 50px;
+    border: 1px solid #BDE7E1;
+    overflow: hidden;
+    color: white;
+    background-color: #343434;
+    padding-left: 4px;
+    display: flex;
+    align-items: center !important;
+}
+
+#atributoRegistro {
+    width: 82%;
+}
+
+    #atributoRegistro p {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 15px;
+        color: #363636;
+        text-align: justify;
+    }
+
+/*o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o*/
+/*apartado componentes 3*/
+
+#pieRegistros {
+    width: 100%;
+    /*height: 40px;*/
+    border-top: 1px solid #CECECE;
+    padding: 10px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    /*background-color: #F5F0FF;*/
+
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 5px;
+}
+
+#botonPieRegistro {
+    width: auto;
+    height: 100%;
+    padding: 2px;
+    padding-left: 6px;
+    padding-right: 8px;
+    border: 1px solid #C3C3C3;
+    background-color: #EFEFEF;
+    color: #414141;
+    border-radius: 25px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*apartado mensaje de registros nulos*/
+
+#mensajeNulos {
+    width: 525px;
+    height: min-content;
+    border-radius: 15px;
+    padding-top: 15px;
+    border: 2px solid #C8C8C8;
+    border-style: dashed;
+    display: flex;
+    flex-direction: column;
+}
+
+    #mensajeNulos p {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 20px;
+        text-align: center;
+        color: #343434;
+    }
+
+/*###################################################################################################*/
+/*apartado inputs de ingreso*/
+
+#contenedorInputsRegistros {
+    width: 100%;
+    padding: 5px;
+    height: 60vh;
+}
+
+#tarjetaInputsRegistros {
+    width: 750px;
+    height: min-content;
+    /*background-color: aquamarine;*/
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+}
+
+#apartadoInputsRegistro {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#grupoInputRegistro {
+    width: auto;
+    height: 35px;
+    padding: 3px;
+    border-radius: 25px;
+    padding-right: 3px;
+    background-color: white;
+    border: 1px solid #CFCFCF;
+    display: flex;
+}
+
+#iconoInputRegistro {
+    width: 32px;
+    height: 100%;
+    background-color: #9068E5;
+    border-radius: 25px;
+    margin-right: 10px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#grupoInputRegistro input {
+    border: 0px;
+    border-radius: 25px;
+    height: 100%;
+    background-color: transparent;
+    outline: none;
+    width: 100%;
+}
+
+#grupoInputRegistro select {
+    border: 0px;
+    border-radius: 25px;
+    height: 100%;
+    background-color: transparent;
+    outline: none;
+    width: 100%;
+}
+
+/*###################################################################################################*/
+/*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*/
+/*###################################################################################################*/
+/*apartado responsive*/
+/*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*/
+/*responsive del indice*/
+@media screen and (max-width: 321px) {
+    #indiceFormulario p {
+        font-size: 10px;
+    }
+}
+
+/*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*/
+/*responsive del menu*/
+
+@media screen and (max-width: 1115px) {
+    #opcionesMenu1 {
+        height: min-content;
+        border-radius: 25px;
+        flex-direction: column-reverse;
+        justify-content: left;
+    }
+
+    #filtroMenu {
+        border-radius: 25px;
+    }
+
+    /*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*/
+
+    #estadosMenu {
+        height: 35px !important;
+        margin-left: 0px;
+        margin-right: 15px;
+    }
+
+    #iconoFiltro {
+        width: 30px;
+        margin-right: 15px;
+    }
+
+    /*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*/
+
+    #opcionesMenu2 {
+        border-radius: 25px;
+    }
+}
+
+@media screen and (max-width: 709px) {
+    #opcionesMenu2 {
+        flex-direction: column-reverse;
+        height: min-content;
+    }
+
+    #botonesMenu {
+        width: 100%;
+        gap: 15px;
+    }
+
+    #botonMenuAgregar {
+        flex-grow: 1;
+        text-align: center;
+        margin-right: 0px;
+    }
+
+    #botonMenuImprimir {
+        flex-grow: 1;
+        text-align: center;
+        margin-right: 0px;
+    }
+
+    /*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*/
+
+    #grupoInputBuscar input {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    #filtroMenu {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #iconoFiltro {
+        display: none;
+    }
+
+    #selectFiltro {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 432px) {
+    #generalidadesMenu {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #estadosMenu {
+        width: 100%;
+        text-align: center;
+    }
+
+    #botonesMenu {
+        flex-direction: column;
+    }
+}
+
+/*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*/
+/*responsive de los registros*/
+
+@media screen and (max-width: 1246px) {
+    #contenedorRegistrosFormulario {
+        height: 57vh;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    #contenedorGeneralFormulario {
+        overflow-y: scroll;
+        width: 100%;
+        height: 60vh;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    #tarjetaRegistros {
+        width: 220px;
+    }
+
+    #datoRegistros {
+        width: 80%;
+    }
+
+    #atributoRegistro {
+        overflow-x: hidden;
+        width: 78%;
+    }
+}
+
+/*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*/
+/*apartado inputs para actualizacion*/
+
+@media screen and (max-width: 725px) {
+    #tarjetaInputsRegistros {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    #contenedorGeneralFormulario {
+        overflow-y: scroll;
+        width: 100%;
+        height: 60vh;
+        padding-bottom: 30px;
+    }
+
+    #contenedorInputsRegistros {
+        overflow-y: scroll;
+    }
+}
