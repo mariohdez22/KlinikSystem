@@ -1,6 +1,7 @@
 ﻿@model KlinikSystem.Models.ViewModels.RecetumVM
 @{
     ViewData["Title"] = "AgregarReceta";
+    ViewData["VistaKlinik"] = "ADMINISTRACION DE LAS RECETAS";
 }
 
 
@@ -16,7 +17,13 @@
 @if (Model.obRecetum.Idreceta == 0)
 {
     <div id="indiceFormulario">
-        <p>Klinik System > Gestion de pacientes general > Ingreso de Expedientes</p>
+        <p>Klinik System > Gestion de pacientes general > Ingreso de Recetas</p>
+    </div>
+}
+else
+{
+    <div id="indiceFormulario">
+        <p>Klinik System > Gestion de pacientes general > Modificacion de Recetas</p>
     </div>
 }
 
@@ -44,7 +51,10 @@
                         {
                             <p>Agregar Registro - <strong>Receta</strong> </p>
                         }
-
+                        else
+                        {
+                            <p>Modificar Registro - <strong>Receta</strong> </p>
+                        }
 
                     </div>
 
@@ -61,7 +71,10 @@
                     {
                         <button onclick="VerificacionInputs()" type="submit" id="botonMenuAgregar"><i class="bi bi-plus-circle-fill"></i> Ingresar Registros</button>
                     }
-
+                    else
+                    {
+                        <button onclick="VerificacionInputs()" type="submit" id="botonMenuAgregar"><i class="bi bi-plus-circle-fill"></i> Editar Registros</button>
+                    }
 
                     <a asp-action="IndexReceta" asp-controller="Recetas" id="botonMenuImprimir"><i class="bi bi-box-arrow-left"></i> Ir a los Registros</a>
 

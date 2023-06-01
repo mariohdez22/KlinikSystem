@@ -99,6 +99,30 @@
     border: 0px;
 }
 
+#tituloMenu
+{
+    background-color: #FCFFE3;
+    border: 1px solid #9AA0D4;
+    border-radius: 25px;
+    height: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 2px;
+    margin-right: 10px;
+}
+
+#tituloMenu p
+{
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+}
+
+#tituloMenu strong
+{
+    font-weight: 400;
+    color: #5A67D3;
+}
+
 /*o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o*/
 /*apartado componentes 2*/
 
@@ -290,7 +314,7 @@
 
 #tarjetaRegistros
 {
-    width: 325px;
+    width: 400px;
     height: min-content;
     /*background-color: aquamarine;*/
     border-radius: 15px;
@@ -306,12 +330,14 @@
     border-bottom: 1px solid #CECECE;
     /*background-color: #F5F0FF;*/
     padding: 6px;
-    padding-top: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
 
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center, baseline;
     gap: 5px;
 }
@@ -437,7 +463,7 @@
     /*background-color: #F5F0FF;*/
 
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: baseline;
     gap: 5px;
 }

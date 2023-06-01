@@ -1,0 +1,224 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #F7F9FC;
+    margin: 0;
+    padding: 0;
+    color: #222;
+
+    background-image: url("fondo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .header {
+    background-color: #115959;
+    padding: 20px auto;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header h1 {
+    color: #fff;
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .container {
+	max-width: 800px;
+	margin-top: 20px;
+    margin-bottom: 20px;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #fff;
+	padding-top: 20px;
+	padding-right: 20px;
+	padding-left: 20px;
+	padding-bottom: 50px;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .greeting {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  .personal-info {
+    margin-bottom: 30px;
+  }
+  
+  .personal-info h2 {
+    color: #115959;
+    margin-bottom: 15px;
+  }
+  
+  .form-field {
+    margin-bottom: 20px;
+  }
+  
+  .form-field label {
+    font-weight: bold;
+    color: #115959;
+  }
+  
+  .form-field div {
+    padding: 10px;
+    background-color: #E5F3F2;
+    border-radius: 4px;
+  }
+  
+  .appointment-section {
+    margin-bottom: 30px;
+  }
+  
+  .appointment-section h2 {
+    color: #115959;
+    margin-bottom: 15px;
+  }
+  
+  .button {
+    background-color: #115959;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px;
+  }
+  
+  .button:hover {
+    background-color: #0D3939;
+  }
+  
+  .appointment-info h2,
+  .prescription-section h2 {
+    color: #115959;
+    margin-bottom: 15px;
+	margin-top: 30px;
+  }
+  
+  .appointment-table,
+  .prescription-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .appointment-table th,
+  .appointment-table td,
+  .prescription-table th,
+  .prescription-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .appointment-table th {
+    background-color: #115959;
+    color: #fff;
+  }
+  
+  .prescription-table th {
+    background-color: #0E3866;
+    color: #fff;
+  }
+  
+  .download-button {
+    background-color: #115959;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    float: right;
+    margin-bottom: 10px;
+  }
+  
+  .download-button:hover {
+    background-color: #0D3939;
+  }
+  
+  .user-profile-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .logout-button,
+  .settings-button {
+    background-color: #115959;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logout-button:hover,
+  .settings-button:hover {
+    background-color: #0D3939;
+  }
+
+  @media print {
+    body {
+      background: none;
+    }
+  
+    .header,
+    .button,
+    .logout-button,
+    .settings-button,
+    .download-button {
+      display: none;
+    }
+  
+    .container {
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-right: auto;
+      margin-left: auto;
+      padding-top: 0;
+      padding-right: 0;
+      padding-left: 0;
+      padding-bottom: 0;
+      box-shadow: none;
+      border-radius: 0;
+    }
+  
+    .personal-info,
+    .appointment-section,
+    .appointment-info,
+    .prescription-section {
+      margin-bottom: 0;
+    }
+  
+    .appointment-table,
+    .prescription-table {
+      border: none;
+    }
+  
+    .appointment-table th,
+    .appointment-table td,
+    .prescription-table th,
+    .prescription-table td {
+      border: none;
+      padding: 5px;
+    }
+  
+    .appointment-table th {
+      background-color: transparent;
+      color: #000;
+    }
+  
+    .prescription-table th {
+      background-color: transparent;
+      color: #000;
+    }
+  }

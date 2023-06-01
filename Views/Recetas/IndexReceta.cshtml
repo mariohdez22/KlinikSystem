@@ -1,14 +1,13 @@
 ﻿@model List<KlinikSystem.Models.Recetum>
 @{
     ViewData["Title"] = "IndexReceta";
+    ViewData["VistaKlinik"] = "ADMINISTRACION DE LAS RECETAS";
 }
 
-<h1>IndexReceta</h1>
-
 @section Estilos
-    {
+{
     <link rel="stylesheet" href="~/css/VistaMuestra/RecetaMuestra.css" asp-append-version="true" />
-    }
+}
 
 @*///////////////////////////////////////////////////////////////////////////////////////////////////*@
 @*Apartado del indice de operaciones del formulario /////////////////////////////////////////////////*@
@@ -23,51 +22,15 @@
 
 <div id="contenedorGeneralFormulario">
 
-    <div id="contenedorMenusFormulario">
+    <div id="contenedorMenusFormulario"> 
 
-        <div id="opcionesMenu1">
-            @*espacio para agregar opciones en el filtro mmmmmmmmmmmmmmmmmmmmmm*@
+        <div id="opcionesMenu1">  @*espacio para agregar opciones en el filtro mmmmmmmmmmmmmmmmmmmmmm*@
 
             <div id="filtroMenu">
+    
+                <div id="tituloMenu">
 
-                <div id="iconoFiltro">
-                    <i class="bi bi-funnel-fill"></i>
-                </div>
-
-                <
-
-
-            </div>
-            <div id="generalidadesMenu">
-
-                <div id="estadosMenu" class="perfilEstado">
-                </div>
-
-            </div>
-
-            <div id="opcionesMenu2">
-                @*espacio para agregar botones en las opciones mmmmmmmmmmmmmmmmmmmmm*@
-
-                <div id="botonesMenu">
-
-                    <a asp-action="AgregarReceta" asp-controller="Recetas" asp-route-idexpediente="0" id="botonMenuAgregar"><i class="bi bi-check-circle-fill"></i> Agregar Registros</a>
-
-                    <a id="botonMenuImprimir"><i class="bi bi-file-earmark-pdf-fill"></i> Imprimir Registros</a>
-
-                </div>
-
-                <div id="inputMenu">
-
-                    <form asp-controller="Recetas" asp-action="IndexReceta">
-
-                        <div id="grupoInputBuscar">
-
-                            <div id="iconoBuscarMenu"><i class="bi bi-search"></i></div>
-                            <input name="buscar" type="text" placeholder="Buscar Registro" />
-
-                        </div>
-
-                    </form>
+                    <p>Expedientes - <strong>Generales</strong> </p>
 
                 </div>
 
@@ -75,9 +38,37 @@
 
         </div>
 
-        @*///////////////////////////////////////////////////////////////////////////////////////////////////*@
-        @*///////////////////////////////////////////////////////////////////////////////////////////////////*@
-        @*Apartado del contenedor de registros del formulario ///////////////////////////////////////////////*@
+        <div id="opcionesMenu2"> @*espacio para agregar botones en las opciones mmmmmmmmmmmmmmmmmmmmm*@
+
+            <div id="botonesMenu">
+
+                <a asp-action="AgregarReceta" asp-controller="Recetas" asp-route-idreceta="0" id="botonMenuAgregar"><i class="bi bi-check-circle-fill"></i> Agregar Registros</a>
+
+                <a id="botonMenuImprimir"><i class="bi bi-file-earmark-pdf-fill"></i> Imprimir Registros</a>
+
+            </div>
+
+            <div id="inputMenu">
+                <form asp-controller="Expediente" asp-action="IndexExpediente">
+
+                    <div id="grupoInputBuscar">
+
+                        <div id="iconoBuscarMenu"><i class="bi bi-search"></i></div>
+                        <input name="buscar" type="text" placeholder="Buscar Registro"/>
+                    
+                    </div>
+                
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+@*/////////////////////////////////////////////////////////////////////////////////////////*@
+@*/////////////////////////////////////////////////////////////////////////////////////////*@
+@*Apartado del contenedor de registros del formulario /////////////////////////////////////*@
 
         <div id="contenedorRegistrosFormulario">
 
@@ -90,9 +81,11 @@
 
                     <div id="encabezadoRegistros">
 
-                        <h2>@item.CodigoReceta</h2>
-
-
+                        <div id="tipoRegistros">
+        
+                            <p>@item.CodigoReceta</p>
+        
+                        </div>
 
                     </div>
 
@@ -156,14 +149,14 @@
 
                             </div>
 
+                            <div id="datoRegistros">
 
-                        </div>
-                        <div id="datoRegistros">
+                                <div id="iconoRegistro"><i class="bi bi-envelope-at-fill"></i></div>
 
-                            <div id="iconoRegistro"><i class="bi bi-envelope-at-fill"></i></div>
+                                <div id="atributoRegistro">
+                                    <p>@item.DuracionTratamiento</p>
+                                </div>
 
-                            <div id="atributoRegistro">
-                                <p>@item.DuracionTratamiento</p>
                             </div>
 
                         </div>
@@ -172,7 +165,13 @@
 
                     @*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*@
 
+                    <div id="pieRegistros">
 
+                        <a asp-action="AgregarReceta" asp-controller="Recetas" asp-route-idreceta="@item.Idreceta" id="botonPieRegistro"><i class="bi bi-pencil-square"></i> Editar</a>
+
+                        <a id="botonPieRegistro"><i class="bi bi-x-circle-fill"></i> Suspender</a>
+
+                    </div>
 
                 </div>
             }
@@ -181,7 +180,7 @@
 
         </div>
 
-    </div>
+</div>
 
     @*///////////////////////////////////////////////////////////////////////////////////////////////////*@
     @*///////////////////////////////////////////////////////////////////////////////////////////////////*@

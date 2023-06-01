@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewData["Title"] = "IndexPerfil";
+    Layout = "~/Views/Template/LayoutClientes.cshtml";
+}
+@section Estilos
+{
+    <link rel="stylesheet" href="~/css/PerfilPaciente.css" asp-append-version="true" />
+}
+    <div style="margin-top: 0px; padding-top: 150px;" class="container">
+      <div class="greeting" id="greeting"></div>
+      <section class="personal-info">
+        <h2>Datos personales</h2>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="nombre">Nombre Completo:</label>
+            <div id="nombre"></div>
+          </div>
+        </div>
+      </section>
+      <section class="appointment-section">
+        <h2>Agendar cita</h2>
+        <div class="form-field">
+          <label for="especialidad">Especialidad:</label>
+          <select id="especialidad">
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="fecha">Fecha:</label>
+          <input type="date" id="fecha">
+        </div>
+        <div class="form-field">
+          <label for="hora">Hora:</label>
+          <input type="time" id="hora">
+        </div>
+        <button class="button">Agendar</button>
+      </section>
+      <section class="appointment-info">
+        <h2>Datos de la cita</h2>
+        <table class="appointment-table">
+          <tr>
+            <th>Doctor</th>
+            <th>Especialidad</th>
+            <th>Paciente</th>
+            <th>DUI</th>
+            <th>Metodo de pago</th>
+            <th>Precio</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Estado</th>
+          </tr>
+          <tr>
+            <td id="Doctor"></td>
+            <td id="Especialidad"></td>
+            <td id="Paciente"></td>
+            <td id="DUI"></td>
+            <td id="Metodo de pago"></td>
+            <td id="Precio"></td>
+            <td id="Fecha"></td>
+            <td id="Hora"></td>
+            <td id="Estado"></td>
+          </tr>
+        </table>
+        <button class="button download-button">Descargar</button>
+      </section>
+      <section class="prescription-section">
+        <h2>Receta médica</h2>
+        <table class="prescription-table">
+          <tr>
+            <th>Código receta</th>
+            <th>Medicamento</th>
+            <th>Indicaciones</th>
+            <th>Cantidad</th>
+            <th>Duración</th>
+            <th>Fecha</th>
+          </tr>
+          <tr>
+            <td id="Código receta"></td>
+            <td id="Medicamento"></td>
+            <td id="Indicaciones"></td>
+            <td id="Cantidad"></td>
+            <td id="Duración"></td>
+            <td id="Fecha"></td>
+          </tr>
+        </table>
+        <button class="button download-button">Descargar</button>
+      </section>
+    </div>
