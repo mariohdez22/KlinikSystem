@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "AgregarPaciente";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["VistaKlinik"] = "ADMINISTRACION DEL PACIENTE";
 }
 @section Estilos
 {
@@ -29,7 +30,7 @@
 @*///////////////////////////////////////////////////////////////////////////////////////////////////*@
 @*Apartado del menu de opciones del formulario //////////////////////////////////////////////////////*@
 
-<form asp-action="AgregarPaciente" asp-controller="Pacientes">
+<form asp-action="AgregarPaciente" asp-controller="Pacientes" method="post">
 
 <input type="hidden" asp-for="obPaciente.Idpaciente"/>
 
@@ -122,7 +123,7 @@
 
                 <div id="grupoInputRegistro">
                     <div id="iconoInputRegistro"><i class="bi bi-image-fill"></i></div>
-                    <input asp-for="obPaciente.FechaNacimiento" placeholder="Agregar Imagen"/>
+                    <input asp-for="obPaciente.FechaNacimiento" type="date" placeholder="Agregar Imagen"/>
                 </div>
 
                 

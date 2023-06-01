@@ -37,9 +37,7 @@
                     <select id="selectFiltro" class="FiltroEstadoExpediente" onclick="SelectIndiceEstadoExpedinte()" asp-items="ViewBag.EstadoExpedientes">
                         <option>Estado Expediente...</option>
                     </select>
-                </div>
-                
-               
+                </div>                             
 
             </div>
             <div id="generalidadesMenu">
@@ -71,7 +69,6 @@
             </div>
 
             <div id="inputMenu">
-
                 <form asp-controller="Expediente" asp-action="IndexExpediente">
 
                     <div id="grupoInputBuscar">
@@ -102,8 +99,8 @@
             <div id="tarjetaRegistros"> @*id que sirve para modificar el tamaño de la tarjeta*@
 
                 <div id="encabezadoRegistros">
-                    <h2>Num.Expediente </h2>
-                    <h2>@item.NumeroExpediente</h2>
+
+                    <h2>Num.Expediente - @item.NumeroExpediente </h2>
 
                     <div id="tipoRegistros">
 
@@ -141,8 +138,10 @@
                             </div>
 
                         </div>
+                       
+                    </div>
 
-                        
+                    <div id="contenedorDatosRegistros">
 
                         <div id="datoRegistros">
 
@@ -164,10 +163,9 @@
 
                         </div>
 
-                       
-                        </div>
-
                     </div>
+
+                </div>
 
                     @*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*@
                 <div id="pieRegistros">

@@ -2,9 +2,10 @@
 @{
     ViewData["Title"] = "AgregarCitas";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["VistaKlinik"] = "ADMINISTRACION DE LAS CITAS";
 }
 @section Estilos
-    {
+{
     <link rel="stylesheet" href="~/css/VistaIngreso/CitasIngreso.css" asp-append-version="true" />
 }
 
@@ -31,7 +32,7 @@ else
 
 <form asp-action="AgregarCita" asp-controller="Citas">
 
-    <input type="hidden" asp-for="obCitas.Idcitas" />
+    <input type="text" asp-for="obCitas.Idcitas" />
 
     <div id="contenedorGeneralFormulario">
 
@@ -73,7 +74,7 @@ else
                         <button onclick="VerificacionInputs()" type="submit" id="botonMenuAgregar"><i class="bi bi-plus-circle-fill"></i> Actualizar Registros</button>
                     }
 
-                    <a asp-action="IndexCitas" asp-controller="Cita" id="botonMenuImprimir"><i class="bi bi-box-arrow-left"></i> Ir a los Registros</a>
+                    <a asp-action="IndexCitas" asp-controller="Citas" id="botonMenuImprimir"><i class="bi bi-box-arrow-left"></i> Ir a los Registros</a>
 
                 </div>
 
@@ -98,7 +99,7 @@ else
 
                     <div id="grupoInputRegistro">
                         <div id="iconoInputRegistro"><i class="bi bi-person-vcard-fill"></i></div>
-                        <input asp-for="obCitas.Fecha"  placeholder="Agregar fecha" />
+                        <input asp-for="obCitas.Fecha" type="text"  placeholder="Agregar fecha" />
                     </div>
 
                     <div id="grupoInputRegistro">
@@ -146,9 +147,7 @@ else
                     <div id="grupoInputRegistro">
                         <div id="iconoInputRegistro"><i class="bi bi-folder-fill"></i></div>
                         <input asp-for="obCitas.Precio" type="text" placeholder="Agregar Precio" />
-                    </div>
-
-                    
+                    </div>                
 
                 </div>
 

@@ -38,9 +38,6 @@ namespace KlinikSystem.Controllers
             }
 
             ViewData["EstadoCita"] = new SelectList(_baseDatos.EstadoCita, "IdestadoCita", "EstadoCita");
-            ViewData["MetodoPago"] = new SelectList(_baseDatos.MetodoPagos, "IdmetodoPago", "MetodoPago1");
-            ViewData["Paciente"] = new SelectList(_baseDatos.Pacientes, "Idpaciente", "Nombre");
-            ViewData["Personal"] = new SelectList(_baseDatos.Personals, "Idpersonal", "Nombres");
 
             return View(citas);
         }
@@ -62,7 +59,8 @@ namespace KlinikSystem.Controllers
                                a.Fecha,
                                a.EspecialidadPersonal,
                                a.Precio,
-                               EstadoCita = a.IdestadoCitaNavigation.EstadoCita,
+                               a.DuiPaciente,
+                               EstadosCita = a.IdestadoCitaNavigation.EstadoCita,
                                MetodoPago = a.IdmetodoPagoNavigation.MetodoPago1,
                                Paciente = a.IdpacienteNavigation.Nombre,
                                Personal = a.IdpersonalNavigation.Nombres,
@@ -71,117 +69,14 @@ namespace KlinikSystem.Controllers
 
             if (citas.Count == 0)
             {
-                return Json(new { success = false, message = "No se encontraron datos para el estado proporcionada" });
+                return Json(new { success = false, message = "No se encontraron datos para el estado proporcionado" });
             }
             else
             {
                 return Json(new { success = true, datos = citas });
             }
 
-        }
-
-        [HttpGet]
-        public IActionResult FiltroMetodo(int indice)
-        {
-
-            var citas = _baseDatos.Citas
-                           .Where(i => i.IdestadoCita == indice)
-                           .Include(at => at.IdestadoCitaNavigation)
-                           .Include(e => e.IdmetodoPagoNavigation)
-                           .Include(ep => ep.IdpacienteNavigation)
-                           .Include(er => er.IdpersonalNavigation)
-                           .Select(a => new
-                           {
-                               a.Idcitas,
-                               a.NumCita,
-                               a.Fecha,
-                               a.EspecialidadPersonal,
-                               a.Precio,
-                               EstadoCita = a.IdestadoCitaNavigation.EstadoCita,
-                               Paciente = a.IdpacienteNavigation.Nombre,
-                               Personal = a.IdpersonalNavigation.Nombres,
-                           })
-                           .ToList();
-
-            if (citas.Count == 0)
-            {
-                return Json(new { success = false, message = "No se encontraron datos para el pago proporcionada" });
-            }
-            else
-            {
-                return Json(new { success = true, datos = citas });
-            }
-
-        }
-
-        [HttpGet]
-        public IActionResult FiltroPaciente(int indice)
-        {
-
-            var citas = _baseDatos.Citas
-                           .Where(i => i.IdestadoCita == indice)
-                           .Include(at => at.IdestadoCitaNavigation)
-                           .Include(e => e.IdmetodoPagoNavigation)
-                           .Include(ep => ep.IdpacienteNavigation)
-                           .Include(er => er.IdpersonalNavigation)
-                           .Select(a => new
-                           {
-                               a.Idcitas,
-                               a.NumCita,
-                               a.Fecha,
-                               a.EspecialidadPersonal,
-                               a.Precio,
-                               EstadoCita = a.IdestadoCitaNavigation.EstadoCita,
-                               MetodoPago = a.IdmetodoPagoNavigation.MetodoPago1,
-                               Paciente = a.IdpacienteNavigation.Nombre,
-                               Personal = a.IdpersonalNavigation.Nombres,
-                           })
-                           .ToList();
-
-            if (citas.Count == 0)
-            {
-                return Json(new { success = false, message = "No se encontraron datos para el paciente proporcionada" });
-            }
-            else
-            {
-                return Json(new { success = true, datos = citas });
-            }
-
-        }
-        [HttpGet]
-        public IActionResult FiltroPersonal(int indice)
-        {
-
-            var citas = _baseDatos.Citas
-                           .Where(i => i.IdestadoCita == indice)
-                           .Include(at => at.IdestadoCitaNavigation)
-                           .Include(e => e.IdmetodoPagoNavigation)
-                           .Include(ep => ep.IdpacienteNavigation)
-                           .Include(er => er.IdpersonalNavigation)
-                           .Select(a => new
-                           {
-                               a.Idcitas,
-                               a.NumCita,
-                               a.Fecha,
-                               a.EspecialidadPersonal,
-                               a.Precio,
-                               EstadoCita = a.IdestadoCitaNavigation.EstadoCita,
-                               MetodoPago = a.IdmetodoPagoNavigation.MetodoPago1,
-                               Paciente = a.IdpacienteNavigation.Nombre,
-                               Personal = a.IdpersonalNavigation.Nombres,
-                           })
-                           .ToList();
-
-            if (citas.Count == 0)
-            {
-                return Json(new { success = false, message = "No se encontraron datos para el personal proporcionada" });
-            }
-            else
-            {
-                return Json(new { success = true, datos = citas });
-            }
-
-        }
+        }        
 
         //-------------------------------------------------------------------------------
 

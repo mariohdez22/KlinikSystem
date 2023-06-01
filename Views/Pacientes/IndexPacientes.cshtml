@@ -1,6 +1,7 @@
 ﻿@model List<KlinikSystem.Models.Paciente>
 @{
     ViewData["Title"] = "Administracion Paciente";
+    ViewData["VistaKlinik"] = "ADMINISTRACION DEL PACIENTE";
 }
 @section Estilos
 {
@@ -31,18 +32,21 @@
                     <i class="bi bi-funnel-fill"></i>
                 </div>
 
+                <div id="grupoSelectFiltro">
+                    <div id="iconoSelect">
+                        <i class="bi bi-person-fill-exclamation"></i>
+                    </div>
+                    <select id="selectFiltro" class="filtroEstadoTrabajo" onclick="SelectIndiceEstado()" asp-items="ViewBag.EstadoPaciente">
+                        <option>Estado Personal...</option>
+                    </select>
+                </div>
+
             </div>
             <div id="generalidadesMenu">
 
                 <div id="estadosMenu" class="perfilEstado">
                     
                     <p>Estado: <strong>General</strong> </p>
-
-                </div>
-
-                <div id="estadosMenu" class="perfilTipo">
-                    
-                    <p>Tipo: <strong>General</strong> </p>
 
                 </div>
 
@@ -62,7 +66,7 @@
 
             <div id="inputMenu">
 
-                <form asp-controller="Pacientes" asp-action="IndexPaciente">
+                <form asp-controller="Pacientes" asp-action="IndexPacientes">
 
                     <div id="grupoInputBuscar">
 
@@ -228,7 +232,7 @@
             {
 
                 $.ajax({
-                    url: "@Url.Action("FiltroEstado", "Paciente")",
+                    url: "@Url.Action("FiltroEstado", "Pacientes")",
                     type: "GET",
                     data: { indice: $('.filtroEstadoTrabajo').prop('selectedIndex') },
                     success: (response) => 
@@ -266,11 +270,9 @@
                                 $(`
                                     <div id="tarjetaRegistros">
 
-                                        <div id="encabezadoRegistros">
+                                        <div id="encabezadoRegistros">                                          
 
-                                            
-
-                                            <h2>${valor.nombres}</h2>
+                                            <h2>${valor.nombre}</h2>
 
                                             <div id="tipoRegistros">
 
@@ -362,7 +364,7 @@
 
                                 $('#indiceFormulario').empty();
 
-                                let $indice = $('<p>Klinik System > Gestion de pacientes general > Filtro de Estado del Personal</p>')
+                                let $indice = $('<p>Klinik System > Gestion de pacientes general > Filtro de estado del paciente</p>')
 
                                 $indice.appendTo('#indiceFormulario')
 

@@ -138,10 +138,7 @@ namespace KlinikSystem.Controllers
             return View(expediente);
         }
 
-
-
-
-            [HttpPost]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AgregarExpediente(ExpedienteVM expediente)
         {

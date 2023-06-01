@@ -34,11 +34,12 @@ namespace KlinikSystem.Controllers
             }
 
 
-            ViewData["EstadoPaciente"] = new SelectList(_baseDatos.EstadoPacientes, "IdestadoPaciente", "EstadoPaciente");
+            ViewData["EstadoPaciente"] = new SelectList(_baseDatos.EstadoPacientes, "IdestadoPaciente", "EstadoPaciente1");
 
 
             return View(paciente);
         }
+
         [HttpGet]
         public IActionResult FiltroEstado(int indice)
         {
@@ -68,6 +69,7 @@ namespace KlinikSystem.Controllers
             }
 
         }
+
         [HttpGet]
         public async Task<IActionResult> AgregarPaciente(int IDpaciente)
         {
@@ -97,7 +99,7 @@ namespace KlinikSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (paciente.obPaciente.IdestadoPaciente == 0)
+                if (paciente.obPaciente.Idpaciente == 0)
                 {
                     paciente.obPaciente.Contrasena = Utilidades.EncriptarClave(paciente.obPaciente.Contrasena);
                     _baseDatos.Pacientes.Add(paciente.obPaciente);
