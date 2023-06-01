@@ -2,11 +2,10 @@
 @{
     ViewData["Title"] = "AgregarExpediente";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["VistaKlinik"] = "ADMINISTRACION DEL EXPEDIENTE";
 }
-
-
 @section Estilos
-    {
+{
     <link rel="stylesheet" href="~/css/VistaIngreso/ExpedienteIngreso.css" asp-append-version="true" />
 }
 
@@ -64,7 +63,7 @@
                     }
                     
 
-                    <a asp-action="Expediente" asp-controller="Expediente" id="botonMenuImprimir"><i class="bi bi-box-arrow-left"></i> Ir a los Registros</a>
+                    <a asp-action="IndexExpediente" asp-controller="Expediente" id="botonMenuImprimir"><i class="bi bi-box-arrow-left"></i> Ir a los Registros</a>
 
                 </div>
 
@@ -89,29 +88,31 @@
 
                     <div id="grupoInputRegistro">
                         <div id="iconoInputRegistro"><i class="bi bi-person-vcard-fill"></i></div>
-                        <input asp-for="obExpediente.Idpaciente" type="text" placeholder="Agregar Id Paciente" />
+                        <select asp-for="obExpediente.Idpaciente" asp-items="@Model.listaPaciente">
+                            <option>Paciente</option>
+                        </select>
                     </div>
 
                     <div id="grupoInputRegistro">
-                        <div id="iconoInputRegistro"><i class="bi bi-person-video2"></i></div>
-                        <input asp-for="obExpediente.Idpersonal" placeholder="Agregar Id Personal" />
-                    </div>
+                        <div id="iconoInputRegistro"><i class="bi bi-person-video2"></i></div>                       
+                        <select asp-for="obExpediente.Idpersonal" asp-items="@Model.listaPersonal">
+                            <option>Personal</option>
+                        </select>
+                    </div>                    
 
+                </div>
+
+                <div id="apartadoInputsRegistro">
+                  
                     <div id="grupoInputRegistro">
                         <div id="iconoInputRegistro"><i class="bi bi-telephone-plus-fill"></i></div>
-                        <input asp-for="obExpediente.FechaCreacion" placeholder="Agregar Fecha Creacion" />
+                        <input asp-for="obExpediente.FechaCreacion" type="text" value="@DateTime.Now" placeholder="Agregar Fecha Creacion" />
                     </div>
 
                     <div id="grupoInputRegistro">
                         <div id="iconoInputRegistro"><i class="bi bi-envelope-plus-fill"></i></div>
                         <input asp-for="obExpediente.Alergias" placeholder="Agregar Alergias" />
                     </div>
-
-                </div>
-
-                <div id="apartadoInputsRegistro">
-
-                    
 
                     <div id="grupoInputRegistro">
                         <div id="iconoInputRegistro"><i class="bi bi-clipboard-plus-fill"></i></div>

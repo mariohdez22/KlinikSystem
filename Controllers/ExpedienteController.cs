@@ -168,10 +168,10 @@ namespace KlinikSystem.Controllers
             expediente = new ExpedienteVM()
             {
                 obExpediente = new Expediente(),
-                listaEstadoExpediente = await _baseDatos.Expedientes.Select(at => new SelectListItem()
+                listaEstadoExpediente = await _baseDatos.EstadoExpedientes.Select(at => new SelectListItem()
                 {
-                    Text = at.NumeroExpediente,
-                    Value = at.Idexpediente.ToString()
+                    Text = at.EstadoExpediente1,
+                    Value = at.IdestadoExpediente.ToString()
 
                 }).ToListAsync(),
                 listaPaciente = await _baseDatos.Pacientes.Select(at => new SelectListItem()

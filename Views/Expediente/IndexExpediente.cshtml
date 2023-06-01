@@ -1,9 +1,10 @@
 ﻿@model List<KlinikSystem.Models.Expediente>
 @{
     ViewData["Title"] = "Expedientes";
+    ViewData["VistaKlinik"] = "ADMINISTRACION DEL EXPEDIENTE";
 }
 @section Estilos
-    {
+{
     <link rel="stylesheet" href="~/css/VistaMuestra/ExpedienteMuestra.css" asp-append-version="true" />
 }
 
@@ -48,12 +49,6 @@
 
                 </div>
 
-                <div id="estadosMenu" class="perfilTipo">
-                    
-                    <p>Tipo: <strong>General</strong> </p>
-
-                </div>
-
             </div>
 
         </div>
@@ -89,7 +84,7 @@
 @*///////////////////////////////////////////////////////////////////////////////////////////////////*@
 @*///////////////////////////////////////////////////////////////////////////////////////////////////*@
 @*Apartado del contenedor de registros del formulario ///////////////////////////////////////////////*@
-
+        
     <div id="contenedorRegistrosFormulario">
 
         @*espacio para agregar tarjetas de registros mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*@
@@ -97,17 +92,17 @@
         @foreach (var item in Model)
         {
             <div id="tarjetaRegistros"> @*id que sirve para modificar el tamaño de la tarjeta*@
-
+        
                 <div id="encabezadoRegistros">
-
+        
                     <h2>Num.Expediente - @item.NumeroExpediente </h2>
-
+        
                     <div id="tipoRegistros">
-
+        
                         <p>@item.FechaCreacion</p>
-
+        
                     </div>
-
+        
                 </div>
 
                 <div id="cuerpoRegistros"> @*sirve para modificar la alinacion de los contenedores*@
@@ -170,7 +165,7 @@
                     @*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*@
                 <div id="pieRegistros">
 
-                    <a asp-action="AgregarPersonal" asp-controller="Personal" asp-route-idpersonal="@item.Idpersonal" id="botonPieRegistro"><i class="bi bi-pencil-square"></i> Editar</a>
+                    <a asp-action="AgregarExpediente" asp-controller="Expediente" asp-route-idexpediente="@item.Idexpediente" id="botonPieRegistro"><i class="bi bi-pencil-square"></i> Editar</a>
 
                     <a id="botonPieRegistro"><i class="bi bi-x-circle-fill"></i> Suspender</a>
 

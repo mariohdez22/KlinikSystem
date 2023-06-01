@@ -290,7 +290,7 @@
 
 #tarjetaRegistros
 {
-    width: 400px;
+    width: 440px;
     height: min-content;
     /*background-color: aquamarine;*/
     border-radius: 15px;
@@ -300,19 +300,20 @@
 /*o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o*/
 /*apartado componentes 1*/
 
-#encabezadoRegistros 
+#encabezadoRegistros
 {
     width: 100%;
     border-bottom: 1px solid #CECECE;
     /*background-color: #F5F0FF;*/
     padding: 6px;
     padding-top: 14px;
+    padding-left: 10px;
+    padding-right: 10px;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
-
     display: flex;
-    justify-content: center;
-    align-items: center, baseline;
+    justify-content: space-between;
+    align-items: baseline;
     gap: 5px;
 }
 
@@ -334,7 +335,7 @@
 
 #tipoRegistros
 {
-    width: 90px;
+    width: auto;
     padding-left: 8px;
     padding-right: 8px;
     height: 25px;
@@ -437,7 +438,7 @@
     /*background-color: #F5F0FF;*/
 
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: baseline;
     gap: 5px;
 }

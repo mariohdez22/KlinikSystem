@@ -22,8 +22,7 @@ public partial class Expediente
 
     [Required]
     public int Idpersonal { get; set; } 
-
-    [StringLength(8, ErrorMessage = "El {0} debe de ser de al menos {2} y maximo {1} caracteres", MinimumLength = 8)]
+   
     [Required(ErrorMessage = "Fecha de creacion obligatorio")]
     public DateTime FechaCreacion { get; set; } 
 
