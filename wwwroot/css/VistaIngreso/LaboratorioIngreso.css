@@ -1,0 +1,1030 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap');
+
+/*###################################################################################################*/
+/*apartado indice*/
+
+#indiceFormulario
+{
+    margin-bottom: 20px;
+}
+
+    #indiceFormulario p
+    {
+        font-family: 'Raleway', sans-serif;
+    }
+
+/*###################################################################################################*/
+/*apartado menu*/
+
+#contenedorMenusFormulario
+{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*apartado interno 1*/
+
+#opcionesMenu1
+{
+    background-color: #ECEEFF;
+    width: 100%;
+    height: 45px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    margin-bottom: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/*o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o*/
+/*apartado componentes 1*/
+
+#filtroMenu
+{
+    width: auto;
+    height: 100%;
+    background-color: white;
+    border: 1px solid #C1C1C1;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    padding: 6px;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+#tituloMenu
+{
+    background-color: #FCFFE3;
+    border: 1px solid #9AA0D4;
+    border-radius: 25px;
+    height: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 2px;
+    margin-right: 10px;
+}
+
+    #tituloMenu p
+    {
+        font-family: 'Raleway', sans-serif;
+        font-size: 18px;
+    }
+
+    #tituloMenu strong
+    {
+        font-weight: 400;
+        color: #5A67D3;
+    }
+
+/*||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*apartado interno 2*/
+
+#opcionesMenu2
+{
+    background: linear-gradient(40deg, #B4F5FF, #C7B4FF);
+    width: 100%;
+    height: 45px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/*o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o*/
+/*apartado componentes 1*/
+
+#botonesMenu
+{
+    height: 100%;
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+}
+
+#botonMenuAgregar
+{
+    width: auto;
+    height: 100%;
+    padding: 2px;
+    padding-left: 6px;
+    padding-right: 8px;
+    background-color: #75A5EC;
+    color: white;
+    border-radius: 25px;
+    margin-right: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    border: 0px;
+}
+
+#botonMenuImprimir
+{
+    width: auto;
+    height: 100%;
+    padding: 2px;
+    padding-left: 6px;
+    padding-right: 8px;
+    background-color: #CC8FE7;
+    color: white;
+    border-radius: 25px;
+    margin-right: 15px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/*###################################################################################################*/
+/*apartado inputs de ingreso*/
+
+#contenedorInputsRegistros
+{
+    width: 100%;
+    padding: 5px;
+    height: 60vh;
+
+    display: flex;
+    gap: 20px;
+}
+
+#tarjetaInputsRegistros
+{
+    width: 680px;
+    height: 435px;
+    /*background-color: aquamarine;*/
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#contenedorInputLaboratorios
+{
+    width: 100%;
+    height: min-content;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+#apartadoInputsRegistro
+{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#grupoInputRegistro
+{
+    width: auto;
+    height: 35px;
+    padding: 3px;
+    border-radius: 25px;
+    padding-right: 3px;
+    background-color: white;
+    border: 1px solid #CFCFCF;
+
+    display: flex;
+}
+
+#iconoInputRegistro
+{
+    width: 32px;
+    height: 100%;
+    background-color: #9068E5;
+    border-radius: 25px;
+    margin-right: 10px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#grupoInputRegistro input
+{
+    border: 0px;
+    border-radius: 25px;
+    height: 100%;
+    background-color: transparent;
+    outline: none;
+    width: 100%;
+}
+
+#grupoInputRegistro select
+{
+    border: 0px;
+    border-radius: 25px;
+    height: 100%;
+    background-color: transparent;
+    outline: none;
+    width: 100%;
+}
+
+/*----------------------------------------*/
+
+#contenedorPruebaRegistros
+{
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: #EDDFFF;
+    border-top: 1px solid #CCCCCC;
+    padding: 15px;
+}
+
+#tarjetaPruebaExamen
+{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 15px;
+}
+
+#encabezadoPruebaExamen
+{
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #CCCCCC;
+
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+}
+
+#datoPrueba1
+{
+    flex-grow: 1;
+    border: 1px solid #E59AFF;
+    background-color: #F9E8FF;
+    padding-top: 2px;
+    padding-bottom: 3px;
+    border-top-left-radius: 10px;
+}
+
+#datoPrueba1 h2
+{
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    color: #9F58B8;
+}
+
+#datoPrueba2
+{
+    flex-grow: 1;
+    border: 1px solid #E59AFF;
+    background-color: #F9E8FF;
+    padding-top: 2px;
+    padding-bottom: 3px;
+    border-top-right-radius: 10px;
+}
+
+#datoPrueba2 h2
+{
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    color: #9F58B8;
+}
+
+/*----------------------------------------*/
+
+#cuerpoPruebaExamen
+{
+    width: 100%;
+    height: 215px;
+    padding: 10px;
+    overflow-y: scroll;
+}
+
+#cuerpoPruebaExamen::-webkit-scrollbar 
+{
+    -webkit-appearance: none;
+}
+
+#cuerpoPruebaExamen::-webkit-scrollbar:vertical 
+{
+    width: 10px;
+}
+
+#cuerpoPruebaExamen::-webkit-scrollbar-button:increment, #scroll::-webkit-scrollbar-button 
+{
+    display: none;
+}
+
+#cuerpoPruebaExamen::-webkit-scrollbar:horizontal
+{
+    height: 10px;
+}
+
+#cuerpoPruebaExamen::-webkit-scrollbar-thumb
+{
+    background-color: #DFDFDF;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+#cuerpoPruebaExamen::-webkit-scrollbar-track
+{
+    border-radius: 10px;
+}
+
+#tarjetaRegistroPrueba
+{
+    width: 100%;
+    height: 195px;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #F1F6FF;
+    border: 1px solid #B3CFFF;
+    margin-bottom: 10px;
+}
+
+#contenedorDatos
+{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#datoRegistrosDatos
+{
+    background-color: #FFFFFF;
+    border: 1px solid #D7BFFF;
+    border-radius: 25px;
+    width: 100%;
+    height: 28px;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+}
+
+#iconoRegistroDatos
+{
+    width: 26px;
+    height: 100%;
+    border-radius: 50px;
+    border: 1px solid #BDE7E1;
+    overflow: hidden;
+    color: white;
+    background-color: #80ADDD;
+    padding-left: 4px;
+
+    display: flex;
+    align-items: center !important;
+}
+
+#atributoRegistroDatos
+{
+    width: 82%;
+}
+
+#atributoRegistroDatos p
+{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    color: #363636;
+    text-align: justify;
+}
+
+/*----------------------------------------*/
+
+#tarjetaDatosExamen
+{
+    width: 100%;
+    height: 98px;
+    background-color: white;
+    border: 1px solid #CCCCCC;
+    border-radius: 15px;
+    overflow-y: scroll;
+    padding: 6px;
+
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+#tarjetaDatosExamen::-webkit-scrollbar 
+{
+    -webkit-appearance: none;
+}
+
+#tarjetaDatosExamen::-webkit-scrollbar:vertical 
+{
+    width: 10px;
+}
+
+#tarjetaDatosExamen::-webkit-scrollbar-button:increment, #scroll::-webkit-scrollbar-button 
+{
+    display: none;
+}
+
+#tarjetaDatosExamen::-webkit-scrollbar:horizontal
+{
+    height: 10px;
+}
+
+#tarjetaDatosExamen::-webkit-scrollbar-thumb
+{
+    background-color: #DFDFDF;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+#tarjetaDatosExamen::-webkit-scrollbar-track
+{
+    border-radius: 10px;
+}
+
+#contenedorDatosExamen
+{
+    display: flex;
+    gap: 10px;
+    border-radius: 25px;
+    border: 1px solid #CCCCCC;
+    padding: 5px;
+}
+
+#datoRegistrosDatosExamen
+{
+    background-color: #FFFFFF;
+    border: 1px solid #D7BFFF;
+    border-radius: 25px;
+    width: 100%;
+    background-color: #EFE2FF;
+    height: 28px;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+}
+
+#iconoRegistroDatosExamen
+{
+    width: 26px;
+    height: 100%;
+    border-radius: 50px;
+    border: 1px solid #BDE7E1;
+    overflow: hidden;
+    color: white;
+    background-color: #B77BD3;
+    padding-left: 4px;
+    display: flex;
+    align-items: center !important;
+}
+
+#atributoRegistroDatosExamen
+{
+    width: 82%;
+}
+
+#atributoRegistroDatosExamen p
+{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    color: #363636;
+    text-align: justify;
+}
+
+/*----------------------------------------*/
+#contenedorSubtotal
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#datoAcumulador
+{
+    background-color: #FFFFFF;
+    border: 1px solid #D7BFFF;
+    border-radius: 25px;
+    width: min-content;
+    height: 28px;
+    padding-right: 10px;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+}
+
+#iconoAcumulador
+{
+    width: 35px;
+    height: 100%;
+    border-radius: 50px;
+    border: 1px solid #BDE7E1;
+    overflow: hidden;
+    color: white;
+    background-color: #697EE2;
+    padding-left: 4px;
+    display: flex;
+    align-items: center !important;
+}
+
+#atributoAcumulador
+{
+    width: 82%;
+}
+
+#atributoAcumulador p
+{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    color: #363636;
+    text-align: justify;
+}
+
+/*----------------------------------------*/
+#piePruebaExamen
+{
+    width: 100%;
+    height: 40px;
+    border-top: 1px solid #CCCCCC;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    display: flex;
+}
+
+#contenedorSubtotal2
+{
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 6px;
+}
+
+#datoAcumulador2
+{
+    background-color: white;
+    border: 1px solid #D7BFFF;
+    border-radius: 25px;
+    width: min-content;
+    height: 28px;
+    padding-right: 10px;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+}
+
+#iconoAcumulador2
+{
+    width: 35px;
+    height: 100%;
+    border-radius: 50px;
+    border: 1px solid #BDE7E1;
+    overflow: hidden;
+    color: white;
+    background-color: #A476E8;
+    padding-left: 4px;
+    display: flex;
+    align-items: center !important;
+}
+
+#atributoAcumulador2
+{
+    width: 82%;
+}
+
+#atributoAcumulador2 p
+{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    color: #363636;
+    text-align: justify;
+}
+
+/* apartado de muestra de prueba y datos @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+#contenedorPruebaDatos
+{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 435px;
+}
+
+#tarjetaPruebaDatos
+{
+    width: 680px;
+    height: 100% !important;
+    /*background-color: aquamarine;*/
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+}
+
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+#scrollPruebaDatos
+{
+    width: 100%;
+    height: 186px;
+    padding-right: 5px;
+    border-radius: 15px;
+    overflow-y: scroll;
+
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#scrollPruebaDatos::-webkit-scrollbar 
+{
+    -webkit-appearance: none;
+}
+
+#scrollPruebaDatos::-webkit-scrollbar:vertical 
+{
+    width: 10px;
+}
+
+#scrollPruebaDatos::-webkit-scrollbar-button:increment, #scroll::-webkit-scrollbar-button 
+{
+    display: none;
+}
+
+#scrollPruebaDatos::-webkit-scrollbar:horizontal
+{
+    height: 10px;
+}
+
+#scrollPruebaDatos::-webkit-scrollbar-thumb
+{
+    background-color: #DFDFDF;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+#scrollPruebaDatos::-webkit-scrollbar-track
+{
+    border-radius: 10px;
+}
+
+#tarjetaRegistroPrueba2
+{
+    width: 315px;
+    height: min-content;
+    border-radius: 15px;
+    border: 1px solid #CCCCCC;
+}
+
+#contenedorRegistroPrueba
+{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+
+    display: flex; 
+    flex-direction: column;
+    gap: 10px;
+}
+
+#datoPrueba
+{
+    background-color: #FAEBFF;
+    border: 1px solid #D7BFFF;
+    border-radius: 25px;
+    width: 100%;
+    height: 28px;
+    padding-right: 10px;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+}
+
+#iconoPrueba
+{
+    width: 26px;
+    height: 100%;
+    border-radius: 50px;
+    border: 1px solid #BDE7E1;
+    overflow: hidden;
+    color: white;
+    background-color: #A476E8;
+    padding-left: 4px;
+    display: flex;
+    align-items: center !important;
+}
+
+#atributoPrueba
+{
+    width: 82%;
+}
+
+#atributoPrueba p
+{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    color: #363636;
+    text-align: justify;
+}
+
+/*-------------------------------------------*/
+
+#piePruebaDatos
+{
+    width: 100%;
+    height: 50px;
+    border-top: 1px solid #CCCCCC; 
+    padding-top: 12px;
+    padding-left: 12px;
+}
+
+#botonDatosAgregar
+{
+    width: 100%;
+    height: 100%;
+    padding-top: 4px;
+    padding-bottom: 5px;
+    padding-left: 6px;
+    padding-right: 8px;
+    background-color: white;
+    color: #9C57FF;
+    border-radius: 25px;
+    margin-right: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1px solid #C4C4C4;
+}
+
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+#tarjetaDatosExamen2
+{
+    width: 680px;
+    height: 100% !important;
+    /*background-color: aquamarine;*/
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+/*------------------------------------------*/
+
+#headerPruebaDatos
+{
+    width: 100%;
+    height: 35px;
+    background-color: #F4EAFF;
+    padding-left: 10px;
+    padding-top: 9px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+}
+
+#headerPruebaDatos h1
+{
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+#headerPruebaDatos strong
+{
+    font-weight: 400;
+    color: #D33FFF;
+}
+
+#scrollDatosExamen
+{
+    width: 100%;
+    height: 140px;
+    overflow-y: scroll;
+
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#scrollDatosExamen::-webkit-scrollbar 
+{
+    -webkit-appearance: none;
+}
+
+#scrollDatosExamen::-webkit-scrollbar:vertical 
+{
+    width: 10px;
+}
+
+#scrollDatosExamen::-webkit-scrollbar-button:increment, #scroll::-webkit-scrollbar-button 
+{
+    display: none;
+}
+
+#scrollDatosExamen::-webkit-scrollbar:horizontal
+{
+    height: 10px;
+}
+
+#scrollDatosExamen::-webkit-scrollbar-thumb
+{
+    background-color: #DFDFDF;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+#scrollDatosExamen::-webkit-scrollbar-track
+{
+    border-radius: 10px;
+}
+
+/*-------------------------------------------*/
+
+
+
+/* apartado de notificacion de error @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+#headerNotiError
+{
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    border: 0px !important;
+    background: linear-gradient(40deg, #FF4343, #C643FF);
+}
+
+#alertaError
+{
+    border: 0px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#tituloError
+{
+    color: white;
+    font-family: 'Raleway', sans-serif;
+}
+
+#spanError
+{
+    width: 100%;
+    height: min-content !important;
+    background-color: #FF5252;
+    color: white;
+    padding: 7px;
+    border-radius: 10px;
+    font-family: 'Raleway', sans-serif;
+    box-shadow: none !important;
+}
+
+/*###################################################################################################*/
+/*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*/
+/*###################################################################################################*/
+/*apartado responsive*/
+
+/*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*/
+/*responsive del indice*/
+
+@media screen and (max-width: 321px)
+{
+    #indiceFormulario p
+    {
+        font-size: 10px;
+    }
+}
+
+/*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*/
+/*responsive del menu*/
+
+@media screen and (max-width: 725px)
+{
+    #tarjetaInputsRegistros
+    {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    #contenedorGeneralFormulario
+    {
+        overflow-y: scroll;
+        width: 100%;
+        height: 60vh;
+        padding-bottom: 30px;
+    }
+
+    #contenedorInputsRegistros
+    {
+        overflow-y: scroll;
+    }
+}
+
+@media screen and (max-width: 709px)
+{
+    #opcionesMenu2
+    {
+        flex-direction: column-reverse;
+        height: min-content;
+    }
+
+    #botonesMenu
+    {
+        width: 100%;
+        gap: 15px;
+    }
+
+    #botonMenuAgregar
+    {
+        flex-grow: 1;
+        text-align: center;
+        margin-right: 0px;
+    }
+
+    #botonMenuImprimir
+    {
+        flex-grow: 1;
+        text-align: center;
+        margin-right: 0px;
+    }
+
+    /*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*/
+
+    #grupoInputBuscar input
+    {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 630px)
+{
+    #filtroMenu
+    {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #iconoFiltro
+    {
+        display: none;
+    }
+
+    #selectFiltro
+    {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 432px)
+{
+    #generalidadesMenu
+    {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #estadosMenu
+    {
+        width: 100%;
+        text-align: center;
+    }
+
+    #opcionesMenu1
+    {
+        border-radius: 25px;
+    }
+
+    #filtroMenu
+    {
+        border-radius: 25px;
+        width: 100%;
+    }
+
+    #tituloMenu
+    {
+        text-align: center;
+        padding-top: 5px;
+    }
+
+    #tituloMenu p
+    {
+        font-size: 13px;
+    }
+
+    #opcionesMenu2
+    {
+        border-radius: 25px;
+    }
+
+    #botonesMenu
+    {
+        flex-direction: column;
+    }
+}

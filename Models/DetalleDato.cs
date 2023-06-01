@@ -16,4 +16,5 @@ public partial class DetalleDato
     public virtual DatoExaman IddatoExamenNavigation { get; set; } = null!;
 
     public virtual DetalleExaman IddetalleExamenNavigation { get; set; } = null!;
+
 }

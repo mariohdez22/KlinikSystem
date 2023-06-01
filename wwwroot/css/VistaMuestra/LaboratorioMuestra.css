@@ -314,7 +314,7 @@
 
 #tarjetaRegistros
 {
-    width: 440px;
+    width: 670px;
     height: min-content;
     /*background-color: aquamarine;*/
     border-radius: 15px;
@@ -324,29 +324,22 @@
 /*o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o*/
 /*apartado componentes 1*/
 
-#encabezadoRegistros 
+#encabezadoRegistros
 {
     width: 100%;
     border-bottom: 1px solid #CECECE;
     /*background-color: #F5F0FF;*/
     padding: 6px;
     padding-top: 14px;
+    padding-left: 15px;
+    padding-right: 15px;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
 
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center, baseline;
     gap: 5px;
-}
-
-#imagenRegistro 
-{
-    width: 25px;
-    height: 25px;
-    border-radius: 50px;
-    background-color: #69D098;
-    overflow: hidden;
 }
 
 #encabezadoRegistros h2
@@ -359,7 +352,13 @@
 #encabezadoRegistros strong
 {
     font-weight: 400;
-    color: crimson;
+    color: #FF2E77;
+}
+
+#centradoA
+{
+    display: flex;
+    gap: 15px;
 }
 
 #tipoRegistros
@@ -377,6 +376,21 @@
     color: white;
 }
 
+#tipoRegistros2
+{
+    width: auto;
+    padding-left: 8px;
+    padding-right: 8px;
+    height: 25px;
+    border-radius: 25px;
+    background-color: #DB75EB;
+}
+
+#tipoRegistros2 p
+{
+    color: white;
+}
+
 /*o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o*/
 /*apartado componentes 2*/
 
@@ -386,6 +400,13 @@
     height: auto;
     padding: 15px;
 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#centradoB
+{
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -456,6 +477,320 @@
 /*o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o*/
 /*apartado componentes 3*/
 
+#tarjetaDetalles
+{
+    width: 100%;
+    height: 325px;
+    /*background-color: aquamarine;*/
+    border-radius: 15px;
+    border: 1px solid #CACACA;
+    margin-top: 5px;
+}
+
+#encabezadoRegistrosDetalles
+{
+    width: 100%;
+    border-bottom: 1px solid #CECECE;
+    /*background-color: #F5F0FF;*/
+    padding: 6px;
+    padding-top: 14px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center, baseline;
+    gap: 5px;
+}
+
+#encabezadoRegistrosDetalles h2
+{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    color: #444444;
+}
+
+#encabezadoRegistrosDetalles strong
+{
+    font-weight: 400;
+    color: #C62EFF;
+}
+
+/*---------------------------------------------*/
+
+#contenedorRegistrosDetalles
+{
+    padding: 10px;
+    height: 265px;
+    overflow-y: scroll;
+}
+
+#contenedorRegistrosDetalles::-webkit-scrollbar 
+{
+    -webkit-appearance: none;
+}
+
+#contenedorRegistrosDetalles::-webkit-scrollbar:vertical 
+{
+    width: 10px;
+}
+
+#contenedorRegistrosDetalles::-webkit-scrollbar-button:increment, #scroll::-webkit-scrollbar-button 
+{
+    display: none;
+}
+
+#contenedorRegistrosDetalles::-webkit-scrollbar:horizontal
+{
+    height: 10px;
+}
+
+#contenedorRegistrosDetalles::-webkit-scrollbar-thumb 
+{
+    background-color: #DFDFDF;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+#contenedorRegistrosDetalles::-webkit-scrollbar-track
+{
+    border-radius: 10px;
+}
+
+/*--------------------------------------------*/
+
+#RegistrosDetalles
+{
+    background-color: #F3EDFF;
+    border: 1px solid #D7BFFF;
+    width: 100%;
+    height: 196px;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#contenedorDatosDetalles
+{
+
+    display: flex;
+    gap: 10px;
+}
+
+#datoRegistrosDetalles 
+{
+    background-color: #FFDDEC;
+    border: 1px solid #D7BFFF;
+    border-radius: 25px; 
+    width: 100%;
+    height: 28px;
+
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+}
+
+/* si se va a agrandar el componente, utilizar esta clase "#datoRegistrosModificado"*/
+#datoRegistrosModificadoDetalles
+{
+    background-color: #F3EDFF;
+    border: 1px solid #D7BFFF;
+    border-radius: 15px;  /*si se alarga el height, ajustar el border radius */
+    width: 100%;
+    height: min-content; /*height para modificar tamaño (adaptable: min-content | fijo: 50px) */
+
+    display: flex;
+    gap: 8px;
+}
+
+#iconoRegistroDetalles
+{
+    width: 26px;
+    height: 100%;
+    border-radius: 50px;
+    border: 1px solid #BDE7E1;
+    overflow: hidden;
+    color: white;
+    background-color: #343434;
+    padding-left: 4px;
+
+    display: flex;
+    align-items: center !important;
+}
+
+#atributoRegistroDetalles
+{
+    width: 82%;
+}
+
+#atributoRegistroDetalles p
+{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    color: #363636;
+    text-align: justify;
+}
+
+/*o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o*/
+/*apartado componentes 4*/
+
+#tarjetaDatos
+{
+    width: 100%;
+    height: 136px;
+    /*background-color: aquamarine;*/
+    border-radius: 15px;
+    border: 1px solid #CACACA;
+    margin-top: 10px;
+    background-color: white;
+}
+
+#encabezadoRegistrosDatos
+{
+    width: 100%;
+    border-bottom: 1px solid #CECECE;
+    /*background-color: #F5F0FF;*/
+    padding: 6px;
+    padding-top: 14px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center, baseline;
+    gap: 5px;
+}
+
+#encabezadoRegistrosDatos h2
+{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    color: #444444;
+}
+
+#encabezadoRegistrosDatos strong
+{
+    font-weight: 400;
+    color: #C62EFF;
+}
+
+/*---------------------------------------------*/
+
+#contenedorRegistrosDatos
+{
+    padding: 10px;
+    overflow-y: scroll;
+    margin-right: 5px;
+    height: 85px;
+}
+
+#contenedorRegistrosDatos::-webkit-scrollbar 
+{
+    -webkit-appearance: none;
+}
+
+#contenedorRegistrosDatos::-webkit-scrollbar:vertical 
+{
+    width: 10px;
+}
+
+#contenedorRegistrosDatos::-webkit-scrollbar-button:increment, #scroll::-webkit-scrollbar-button 
+{
+    display: none;
+}
+
+#contenedorRegistrosDatos::-webkit-scrollbar:horizontal
+{
+    height: 10px;
+}
+
+#contenedorRegistrosDatos::-webkit-scrollbar-thumb
+{
+    background-color: #DFDFDF;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+#contenedorRegistrosDatos::-webkit-scrollbar-track
+{
+    border-radius: 10px;
+}
+
+/*--------------------------------------------*/
+
+#RegistrosDatos
+{
+    width: 100%;
+    height: min-content;
+    border-radius: 20px;
+}
+
+#contenedorDatos
+{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#datoRegistrosDatos
+{
+    background-color: #F1F1FF;
+    border: 1px solid #D7BFFF;
+    border-radius: 25px;
+    width: 100%;
+    height: 28px;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+}
+
+/* si se va a agrandar el componente, utilizar esta clase "#datoRegistrosModificado"*/
+#datoRegistrosModificadoDatos
+{
+    background-color: #F3EDFF;
+    border: 1px solid #D7BFFF;
+    border-radius: 15px; /*si se alarga el height, ajustar el border radius */
+    width: 100%;
+    height: min-content; /*height para modificar tamaño (adaptable: min-content | fijo: 50px) */
+
+    display: flex;
+    gap: 8px;
+}
+
+#iconoRegistroDatos
+{
+    width: 26px;
+    height: 100%;
+    border-radius: 50px;
+    border: 1px solid #BDE7E1;
+    overflow: hidden;
+    color: white;
+    background-color: #343434;
+    padding-left: 4px;
+
+    display: flex;
+    align-items: center !important;
+}
+
+#atributoRegistroDatos
+{
+    width: 82%;
+}
+
+#atributoRegistroDatos p
+{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    color: #363636;
+    text-align: justify;
+}
+
+/*o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o*/
+/*apartado componentes 5*/
+
 #pieRegistros
 {
     width: 100%;
@@ -472,15 +807,32 @@
     gap: 5px;
 }
 
-#botonPieRegistro 
+#botonPieRegistroLab 
+{
+    width: auto;
+    height: 84%;   
+    padding-top: 1px;
+    padding-left: 4px;
+    padding-right: 5px;
+    border: 1px solid #C3C3C3;
+    background-color: #EFEFEF;
+    color: #414141;
+    border-radius: 25px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+#botonPieRegistroLab2
 {
     width: auto;
     height: 100%;
-    padding: 2px;
+    padding-top: 1px;
+    padding-bottom: 2px;
     padding-left: 6px;
-    padding-right: 8px;
+    padding-right: 7px;
     border: 1px solid #C3C3C3;
-    background-color: #EFEFEF;
+    background-color: white;
     color: #414141;
     border-radius: 25px;
     cursor: pointer;
