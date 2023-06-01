@@ -22,8 +22,8 @@
                 <a id="linksMenu" class="btn btn-secondary" asp-action="IndexPersonal" asp-controller="Personal" ><i class="bi bi-person-badge-fill"></i></a>
                 <a id="linksMenu" class="btn btn-secondary" asp-action="IndexPacientes" asp-controller="Pacientes"><i class="bi bi-building-fill"></i></a>
                 <a id="linksMenu" class="btn btn-secondary" asp-action="IndexCitas" asp-controller="Citas"><i class="bi bi-person-square"></i></a>
-                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexExpedientes" asp-controller="Expedientes"><i class="bi bi-box-seam-fill"></i></a>
-                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexRecetas" asp-controller="Recetas"><i class="bi bi-tags-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexExpediente" asp-controller="Expediente"><i class="bi bi-box-seam-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexReceta" asp-controller="Recetas"><i class="bi bi-tags-fill"></i></a>
                 <a id="linksMenu" class="btn btn-secondary" asp-action="IndexLaboratorio" asp-controller="Laboratorios"><i class="bi bi-clipboard2-data-fill"></i></a>
                 <a id="linksMenu" class="btn btn-secondary" asp-action="IndexPruebas" asp-controller="Pruebas" ><i class="bi bi-person-badge-fill"></i></a>
                 <a id="linksMenu" class="btn btn-secondary" asp-action="IndexDatos" asp-controller="Datos"><i class="bi bi-building-fill"></i></a>
@@ -31,8 +31,8 @@
             }
             else if(User.IsInRole("Medicina"))
             {
-                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexExpedientes" asp-controller="Expedientes"><i class="bi bi-box-seam-fill"></i></a>
-                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexRecetas" asp-controller="Recetas"><i class="bi bi-tags-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexExpediente" asp-controller="Expediente"><i class="bi bi-box-seam-fill"></i></a>
+                <a id="linksMenu" class="btn btn-secondary" asp-action="IndexReceta" asp-controller="Recetas"><i class="bi bi-tags-fill"></i></a>
                 <a id="linksMenu" class="btn btn-secondary" asp-action="IndexLaboratorio" asp-controller="Laboratorios"><i class="bi bi-clipboard2-data-fill"></i></a>
                 <a id="linksMenu" class="btn btn-secondary" asp-action="IndexServicios" asp-controller="Servicios"><i class="bi bi-person-square"></i></a>
             }

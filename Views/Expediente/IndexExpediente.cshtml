@@ -1,0 +1,375 @@
+﻿@model List<KlinikSystem.Models.Expediente>
+@{
+    ViewData["Title"] = "Expedientes";
+}
+@section Estilos
+    {
+    <link rel="stylesheet" href="~/css/VistaMuestra/ExpedienteMuestra.css" asp-append-version="true" />
+}
+
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*Apartado del indice de operaciones del formulario /////////////////////////////////////////////////*@
+
+    <div id="indiceFormulario">
+        <p>Klinik System > Gestion de expedientes</p>
+    </div>
+
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*Apartado del menu de opciones del formulario //////////////////////////////////////////////////////*@
+
+<div id="contenedorGeneralFormulario">    
+
+    <div id="contenedorMenusFormulario"> 
+
+        <div id="opcionesMenu1">  @*espacio para agregar opciones en el filtro mmmmmmmmmmmmmmmmmmmmmm*@
+
+            <div id="filtroMenu">
+
+                <div id="iconoFiltro">
+                    <i class="bi bi-funnel-fill"></i>
+                </div>
+
+                <div id="grupoSelectFiltro">
+                    <div id="iconoSelect">
+                        <i class="bi bi-person-fill-gear"></i>
+                    </div>
+                    <select id="selectFiltro" class="FiltroEstadoExpediente" onclick="SelectIndiceEstadoExpedinte()" asp-items="ViewBag.EstadoExpedientes">
+                        <option>Estado Expediente...</option>
+                    </select>
+                </div>
+                
+               
+
+            </div>
+            <div id="generalidadesMenu">
+
+                <div id="estadosMenu" class="perfilEstado">
+                    
+                    <p>Estado: <strong>General</strong> </p>
+
+                </div>
+
+                <div id="estadosMenu" class="perfilTipo">
+                    
+                    <p>Tipo: <strong>General</strong> </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="opcionesMenu2"> @*espacio para agregar botones en las opciones mmmmmmmmmmmmmmmmmmmmm*@
+
+            <div id="botonesMenu">
+
+                <a asp-action="AgregarExpediente" asp-controller="Expediente" asp-route-idexpediente="0" id="botonMenuAgregar"><i class="bi bi-check-circle-fill"></i> Agregar Registros</a>
+
+                <a id="botonMenuImprimir"><i class="bi bi-file-earmark-pdf-fill"></i> Imprimir Registros</a>
+
+            </div>
+
+            <div id="inputMenu">
+
+                <form asp-controller="Expediente" asp-action="IndexExpediente">
+
+                    <div id="grupoInputBuscar">
+
+                        <div id="iconoBuscarMenu"><i class="bi bi-search"></i></div>
+                        <input name="buscar" type="text" placeholder="Buscar Registro"/>
+                    
+                    </div>
+                
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*Apartado del contenedor de registros del formulario ///////////////////////////////////////////////*@
+
+    <div id="contenedorRegistrosFormulario">
+
+        @*espacio para agregar tarjetas de registros mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*@
+
+        @foreach (var item in Model)
+        {
+            <div id="tarjetaRegistros"> @*id que sirve para modificar el tamaño de la tarjeta*@
+
+                <div id="encabezadoRegistros">
+                    <h2>Num.Expediente </h2>
+                    <h2>@item.NumeroExpediente</h2>
+
+                    <div id="tipoRegistros">
+
+                        <p>@item.FechaCreacion</p>
+
+                    </div>
+
+                </div>
+
+                <div id="cuerpoRegistros"> @*sirve para modificar la alinacion de los contenedores*@
+                
+                    @*espacio para agregar contenedores para datos mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*@
+
+                    <div id="contenedorDatosRegistros">
+
+                        @*agregar este nombre "datoRegistrosModificado" al componente que se quiera 
+                        modificar y cambiarle el tamaño *@
+
+                        <div id="datoRegistros">
+
+                            <div id="iconoRegistro"><i class="bi bi-person-vcard-fill"></i></div>
+
+                            <div id="atributoRegistro">
+                                <p>@item.IdpacienteNavigation.Nombre</p>
+                            </div>
+
+                        </div>
+
+                        <div id="datoRegistros">
+
+                            <div id="iconoRegistro"><i class="bi bi-person-circle"></i></div>
+
+                            <div id="atributoRegistro">
+                                <p>@item.IdpersonalNavigation.Nombres</p>
+                            </div>
+
+                        </div>
+
+                        
+
+                        <div id="datoRegistros">
+
+                            <div id="iconoRegistro"><i class="bi bi-envelope-at-fill"></i></div>
+
+                            <div id="atributoRegistro">
+                                <p>@item.Alergias</p>
+                            </div>
+
+                        </div>
+
+                        <div id="datoRegistros">
+
+                            <div id="iconoRegistro"><i class="bi bi-person-video2"></i></div>
+
+                            <div id="atributoRegistro">
+                                <p>@item.IdestadoExpedienteNavigation.EstadoExpediente1</p>
+                            </div>
+
+                        </div>
+
+                       
+                        </div>
+
+                    </div>
+
+                    @*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*@
+                <div id="pieRegistros">
+
+                    <a asp-action="AgregarPersonal" asp-controller="Personal" asp-route-idpersonal="@item.Idpersonal" id="botonPieRegistro"><i class="bi bi-pencil-square"></i> Editar</a>
+
+                    <a id="botonPieRegistro"><i class="bi bi-x-circle-fill"></i> Suspender</a>
+
+                </div>
+                
+
+            </div>
+        }      
+
+        @*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*@
+
+    </div>
+
+</div>
+
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+
+
+@if (TempData["MensajeActualizar"] != null)
+{
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div id="headerNotiUpdate" class="toast-header bg-info text-white">
+                <i class="bi bi-heart-pulse-fill"></i>
+                <strong class="me-auto">&nbsp; Klinik System</strong>
+                <small>@DateTime.Now</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                @TempData["MensajeActualizar"]
+            </div>
+        </div>
+    </div>
+
+}
+
+@section Scripts
+{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+
+        let SelectIndiceEstadoExpedinte () => {
+
+            let filtroArea = $('.filtro').prop('selectedIndex');
+
+            if(filtroArea === 0)
+            {
+                return false;
+                //location.reload();
+            }
+            else
+            {
+
+                $.ajax({
+                    url: "@Url.Action("FiltroEstadoExpediente", "Expediente")",
+                    type: "GET",
+                    data: { indice: $('.FiltroEstadoExpediente').prop('selectedIndex') },
+                    success: (response) => 
+                    {
+                        if(response.success === false)
+                        {
+                            $('#contenedorRegistrosFormulario').empty();
+
+                            let $mensajeNulos = 
+                                $(`
+                                    <div id="mensajeNulos">
+                                        <p>${response.message}</p>
+                                    </div>
+                                `)
+
+                            $mensajeNulos.appendTo('#contenedorRegistrosFormulario');
+                        }
+                        else
+                        {
+                            $('#contenedorRegistrosFormulario').empty();
+
+                            $.map(response.datos, (valor, index) => {
+
+                                console.log(valor)
+                                console.log(`numero exp: ${valor.numeroExpediente}`);
+                                console.log(`id paciente: ${valor.idPaciente}`);
+                                console.log(`id personal: ${valor.IdPersonal}`);
+                                console.log(`fecha creacion: ${valor.fechaCracion}`);
+                                console.log(`alergias: ${valor.alergias}`);  
+                                console.log(`estado espediente: ${valor.estadoExpediente}`);
+                               
+
+                                let urlBase = '@Url.Action("AgregarExpediente", "Expediente")';
+
+                                let $tarjetaRegistro = 
+                                $(`
+                                    <div id="tarjetaRegistros">
+
+                                        <div id="encabezadoRegistros">
+
+                                                   <h2>${valor.numeroExpediente}</h2>
+
+                                            <div id="tipoRegistros">
+
+                                                <p>${valor.estadoExpediete}</p>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div id="cuerpoRegistros">              
+
+                                            <div id="contenedorDatosRegistros">
+
+                                                <div id="datoRegistros">
+
+                                                    <div id="iconoRegistro"><i class="bi bi-person-vcard-fill"></i></div>
+
+                                                    <div id="atributoRegistro">
+                                                        <p>${valor.idPaciente}</p>
+                                                    </div>
+
+                                                </div>
+
+                                                <div id="datoRegistros">
+
+                                                    <div id="iconoRegistro"><i class="bi bi-person-circle"></i></div>
+
+                                                    <div id="atributoRegistro">
+                                                        <p>${valor.idPersonal}</p>
+                                                    </div>
+
+                                                </div>
+
+                                                <div id="datoRegistros">
+
+                                                    <div id="iconoRegistro"><i class="bi bi-telephone-fill"></i></div>
+
+                                                    <div id="atributoRegistro">
+                                                        <p>${valor.fechaCreacion}</p>
+                                                    </div>
+
+                                                </div>
+
+                                                
+                                            </div>                                   
+
+                                        </div>
+
+                                        <div id="pieRegistros">
+
+                                            <a href="${urlBase}" id="botonPieRegistro" class="modalActualizar"><i class="bi bi-pencil-square"></i> Editar</a>
+
+                                            <a id="botonPieRegistro"><i class="bi bi-x-circle-fill"></i> Suspender</a>
+
+                                            <input id="IdRegistro" type="hidden" value="${valor.idpersonal}"/>
+
+                                        </div>
+
+                                    </div>
+                                `);
+
+                                $tarjetaRegistro.appendTo('#contenedorRegistrosFormulario');
+
+                                //-----------------------------------------------------------
+
+                                $('.perfilTipo').empty(); 
+                                
+                                $.map(response.datos, (valor, index) => 
+                                {                               
+                                    if (index === 0) 
+                                    {
+                                        let $perfiltipo = $(`<p>Tipo: <strong>${valor.EstadoExpediente}</strong> </p>`)
+                                        $perfiltipo.appendTo('.perfilTipo')
+                                    }
+                                });
+
+                                //-----------------------------------------------------------
+
+                                $('#indiceFormulario').empty();
+
+                                let $indice = $('<p>Klinik System > Gestion de pacientes general > Filtro de Estado de Expediente</p>')
+
+                                $indice.appendTo('#indiceFormulario')
+
+                            });
+                        }
+                    },
+                    error: () => 
+                    {
+                        console.error("Error al procesar la solicitud.");
+                    }
+                });
+            }  
+        } 
+
+        //-----------------------------------------------------------------------------------
+    </script>
+
+    <script src="~/js/Controladores/Personal.js" asp-append-version="true"></script>
+}
+

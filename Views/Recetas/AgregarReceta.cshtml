@@ -1,0 +1,186 @@
+﻿@model KlinikSystem.Models.ViewModels.RecetumVM
+@{
+    ViewData["Title"] = "AgregarReceta";
+}
+
+
+@section Estilos
+    {
+    <link rel="stylesheet" href="~/css/VistaIngreso/ExpedienteIngreso.css" asp-append-version="true" />
+}
+
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*Apartado del indice de operaciones del formulario /////////////////////////////////////////////////*@
+
+@if (Model.obRecetum.Idreceta == 0)
+{
+    <div id="indiceFormulario">
+        <p>Klinik System > Gestion de pacientes general > Ingreso de Expedientes</p>
+    </div>
+}
+
+
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*Apartado del menu de opciones del formulario //////////////////////////////////////////////////////*@
+
+<form asp-action="AgregarReceta" asp-controller="Recetas">
+
+    <input type="hidden" asp-for="obRecetum.Idreceta" />
+
+    <div id="contenedorGeneralFormulario">
+
+        <div id="contenedorMenusFormulario">
+
+            <div id="opcionesMenu1">
+                @*espacio para agregar opciones en el filtro mmmmmmmmmmmmmmmmmmmmmm*@
+
+                <div id="filtroMenu">
+
+                    <div id="tituloMenu">
+
+                        @if (Model.obRecetum.Idreceta == 0)
+                        {
+                            <p>Agregar Registro - <strong>Receta</strong> </p>
+                        }
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="opcionesMenu2">
+                @*espacio para agregar botones en las opciones mmmmmmmmmmmmmmmmmmmmm*@
+
+                <div id="botonesMenu">
+
+                    @if (Model.obRecetum.Idreceta == 0)
+                    {
+                        <button onclick="VerificacionInputs()" type="submit" id="botonMenuAgregar"><i class="bi bi-plus-circle-fill"></i> Ingresar Registros</button>
+                    }
+
+
+                    <a asp-action="IndexReceta" asp-controller="Recetas" id="botonMenuImprimir"><i class="bi bi-box-arrow-left"></i> Ir a los Registros</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        @*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+        @*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+        @*Apartado del contenedor de inputs para ingreso del formulario /////////////////////////////////////*@
+
+        <div id="contenedorInputsRegistros">
+
+            <div id="tarjetaInputsRegistros">
+
+                <div id="apartadoInputsRegistro">
+
+                    <div id="grupoInputRegistro">
+                        <div id="iconoInputRegistro"><i class="bi bi-person-fill-add"></i></div>
+                        <input asp-for="obRecetum.Idexpediente" type="text" placeholder="Agregar Id Expediente" />
+                    </div>
+
+                    <div id="grupoInputRegistro">
+                        <div id="iconoInputRegistro"><i class="bi bi-person-vcard-fill"></i></div>
+                        <input asp-for="obRecetum.CodigoReceta" type="text" placeholder="Agregar Codigo de Receta" />
+                    </div>
+
+                    <div id="grupoInputRegistro">
+                        <div id="iconoInputRegistro"><i class="bi bi-person-video2"></i></div>
+                        <input asp-for="obRecetum.Medicamento" placeholder="Agregar Medicamento" />
+                    </div>
+
+                    <div id="grupoInputRegistro">
+                        <div id="iconoInputRegistro"><i class="bi bi-telephone-plus-fill"></i></div>
+                        <input asp-for="obRecetum.Indicaciones" placeholder="Agregar Indicaciones" />
+                    </div>
+
+                    <div id="grupoInputRegistro">
+                        <div id="iconoInputRegistro"><i class="bi bi-envelope-plus-fill"></i></div>
+                        <input asp-for="obRecetum.Cantidad" placeholder="Agregar Cantidad" />
+                    </div>
+
+                </div>
+
+                <div id="apartadoInputsRegistro">
+
+
+
+                    <div id="grupoInputRegistro">
+                        <div id="iconoInputRegistro"><i class="bi bi-envelope-plus-fill"></i></div>
+                        <input asp-for="obRecetum.Fecha" placeholder="Agregar Fecha" />
+                    </div>
+
+                    <div id="grupoInputRegistro">
+                        <div id="iconoInputRegistro"><i class="bi bi-envelope-plus-fill"></i></div>
+                        <input asp-for="obRecetum.DuracionTratamiento" placeholder="Agregar Duracion de Tratamiento" />
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</form>
+
+
+@if (TempData["MensajeCrear"] != null)
+{
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div id="headerNoti" class="toast-header bg-info text-white">
+                <i class="bi bi-capsule-pill"></i>
+                <strong class="me-auto">&nbsp;Klinik System</strong>
+                <small>@DateTime.Now</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                @TempData["MensajeCrear"]
+            </div>
+        </div>
+    </div>
+
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div id="headerNotiError" class="toast-header bg-info text-white">
+                <i class="bi bi-heart-pulse-fill"></i>
+                <strong class="me-auto">&nbsp;&nbsp;<label id="tituloError"><strong>@TempData["Error"]</strong></label></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div id="alertaError" class="toast-body">
+                <span asp-validation-for="obRecetum.Idexpediente" id="spanError"></span>
+                <span asp-validation-for="obRecetum.CodigoReceta" id="spanError"></span>
+                <span asp-validation-for="obRecetum.Medicamento" id="spanError"></span>
+                <span asp-validation-for="obRecetum.Indicaciones" id="spanError"></span>
+                <span asp-validation-for="obRecetum.Cantidad" id="spanError"></span>
+                <span asp-validation-for="obRecetum.Fecha" id="spanError"></span>
+                <span asp-validation-for="obRecetum.DuracionTratamiento" id="spanError"></span>
+
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts
+    {
+    <script src="~/js/Controladores/Personal.js" asp-append-version="true"></script>
+}
+
+
+
+
+
+
