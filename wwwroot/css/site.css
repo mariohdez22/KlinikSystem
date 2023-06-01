@@ -329,6 +329,15 @@ body {
     color: white;
 }
 
+#BotonImagen
+{
+    border: 0px;
+    height: 30px;
+    width: 30px;
+    padding-left: 0px;
+    border-radius: 50px;
+}
+
 #apartadoImagenSuperior
 {
     background-color: #0071A5;
@@ -338,11 +347,20 @@ body {
     border-radius: 50px;
 }
 
+.dropdown-menu
+{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px !important;
+}
+
+.dropdown-divider
+{
+    color: #E3E3E3;
+}
+
 /*-------------------------------------------------*/
 /* apartado del responsive ------------------------*/
 /*-------------------------------------------------*/
-
-@media screen and (max-width: 1250px) 
+@media screen and (max-width: 1250px)
 {
     /* boton del menu barra roja para espaciar*/
     #linksMenuFinal 

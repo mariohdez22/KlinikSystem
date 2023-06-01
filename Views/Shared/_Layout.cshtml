@@ -66,15 +66,25 @@
         <div id="ContenedorPrincipalContenido">
             <div id="MenuSuperior">
                 <div id="apartadoTituloSuperior">
-                    <h1>ADMINISTRACION DEL PERSONAL</h1>
+                    <h1>@ViewData["VistaKlinik"]</h1>
                 </div>
                 <div id="apartadoOpcionesSuperior">
                     <div id="grupoInputSuperior">
                         <div id="IconoBusquedaImagen"><i class="bi bi-search"></i></div>
                         <input id="inputSuperior" placeholder="Buscar Departamento" />
                     </div>
-                    <div id="apartadoImagenSuperior">
-                        <img src="https://i.guim.co.uk/img/media/ef8492feb3715ed4de705727d9f513c168a8b196/37_0_1125_675/master/1125.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=d456a2af571d980d8b2985472c262b31" width="30" height="30" />
+                    <div class="btn-group">
+                        <button id="BotonImagen" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div id="apartadoImagenSuperior">
+                                <img src="https://i.guim.co.uk/img/media/ef8492feb3715ed4de705727d9f513c168a8b196/37_0_1125_675/master/1125.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=d456a2af571d980d8b2985472c262b31" width="30" height="30" />
+                            </div>
+                        </button>
+                        <ul class="dropdown-menu">
+                           <li><a class="dropdown-item" href="#">Perfil</a></li>
+                           <li><a class="dropdown-item" href="#">Modificar Contraseña</a></li>
+                           <li><hr class="dropdown-divider"></li>
+                           <li><a class="dropdown-item" href="#">Cerrar Sesion</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>

@@ -38,9 +38,7 @@ namespace KlinikSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> IndexLogin(string correo, string clave)
         {
-            Personal personalEncontrado = await _PersonalServicio.GetPersonal(correo, Utilidades.EncriptarClave(clave));
-
-            List<AreaTrabajo> areaTrabajos = await _PersonalServicio.GetArea(personalEncontrado.Idpersonal);
+            Personal personalEncontrado = await _PersonalServicio.GetPersonal(correo, Utilidades.EncriptarClave(clave));           
 
             if (personalEncontrado == null) 
             {
@@ -48,14 +46,19 @@ namespace KlinikSystem.Controllers
                 return View();
             }
 
+            List<AreaTrabajo> areaTrabajos = await _PersonalServicio.GetArea(personalEncontrado.Idpersonal);
+
             List<Claim> claims = new List<Claim>()
             {
                 new Claim(ClaimTypes.Name, personalEncontrado.Nombres)
             };
 
-            foreach (var tipos in areaTrabajos)
+            if (areaTrabajos != null && areaTrabajos.Count > 0)
             {
-                claims.Add(new Claim(ClaimTypes.Role, tipos.AreaTrabajo1));
+                foreach (var tipos in areaTrabajos)
+                {
+                    claims.Add(new Claim(ClaimTypes.Role, tipos.AreaTrabajo1));
+                }
             }
 
             ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);

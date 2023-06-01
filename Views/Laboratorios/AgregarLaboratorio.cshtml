@@ -1,0 +1,467 @@
+﻿@model KlinikSystem.Models.ViewModels.LaboratorioVM
+@{
+    ViewData["Title"] = "AgregarLaboratorio";
+    ViewData["VistaKlinik"] = "ADMINISTRACION DEL LABORATORIO";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Estilos
+{
+    <link rel="stylesheet" href="~/css/VistaIngreso/LaboratorioIngreso.css" asp-append-version="true" />
+}
+
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*Apartado del indice de operaciones del formulario /////////////////////////////////////////////////*@
+
+   <div id="indiceFormulario">
+      <p>Klinik System > Gestion de laboratorios > Ingreso de examenes</p>
+   </div>
+
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*Apartado del menu de opciones del formulario //////////////////////////////////////////////////////*@
+
+<form asp-action="AgregarLaboratorio" asp-controller="Laboratorios" method="post">
+
+<input type="hidden"/>
+
+<div id="contenedorGeneralFormulario">
+
+    <div id="contenedorMenusFormulario">
+
+        <div id="opcionesMenu1">  @*espacio para agregar opciones en el filtro mmmmmmmmmmmmmmmmmmmmmm*@
+
+            <div id="filtroMenu">
+
+                <div id="tituloMenu">
+                    
+                    <p>Agregar Registros - <strong>Laboratorio</strong> </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="opcionesMenu2"> @*espacio para agregar botones en las opciones mmmmmmmmmmmmmmmmmmmmm*@
+
+            <div id="botonesMenu">
+
+                <button onclick="VerificacionInputs()" type="submit" id="botonMenuAgregar"><i class="bi bi-plus-circle-fill"></i> Ingresar Registros</button>
+
+                <a asp-action="IndexLaboratorio" asp-controller="Laboratorios" id="botonMenuImprimir"><i class="bi bi-box-arrow-left"></i> Ir a los Registros</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*///////////////////////////////////////////////////////////////////////////////////////////////////*@
+@*Apartado del contenedor de inputs para ingreso del formulario /////////////////////////////////////*@
+
+    <div id="contenedorInputsRegistros">
+
+        <div id="tarjetaInputsRegistros">
+
+            <div id="contenedorInputLaboratorios">
+
+                <div id="apartadoInputsRegistro">
+
+                    <div id="grupoInputRegistro">
+                        <div id="iconoInputRegistro"><i class="bi bi-clipboard2-plus-fill"></i></div>
+                        <input asp-for="Idexpediente" type="text" placeholder="Expediente"/>
+                    </div>
+
+                    <div id="grupoInputRegistro">
+                        <div id="iconoInputRegistro"><i class="bi bi-droplet-fill"></i></div>
+                        <input asp-for="TipoSangre" type="text" placeholder="Tipo de sangre"/>
+                    </div>
+
+                </div>
+
+                <div id="apartadoInputsRegistro">
+
+                    <div id="grupoInputRegistro">
+                        <div id="iconoInputRegistro"><i class="bi bi-file-earmark-binary-fill"></i></div>
+                        <input asp-for="CodigoLaboratorio" type="text" placeholder="Codigo Laboratorio"/>
+                    </div>
+
+                    <div id="grupoInputRegistro">
+                        <div id="iconoInputRegistro"><i class="bi bi-clipboard-check-fill"></i></div>
+                        <input asp-for="IdestadoLaboratorio" type="text" placeholder="Estado Examen"/>
+                    </div>
+
+                </div>
+
+            </div>
+
+            @*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*@
+
+            <div id="contenedorPruebaRegistros">
+
+                <div id="tarjetaPruebaExamen">
+
+                    <div id="encabezadoPruebaExamen">
+
+                        <div id="datoPrueba1">
+
+                            <h2>Numero Detalle</h2>
+
+                        </div>
+
+                        <div id="datoPrueba2">
+
+                            <h2>Prueba Examen</h2>
+
+                        </div>
+
+                    </div>
+
+                    <div id="cuerpoPruebaExamen">
+
+                        @*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*@
+
+                        @*<div id="tarjetaRegistroPrueba">
+
+                            <div id="contenedorDatos">
+
+                                <div id="datoRegistrosDatos">
+
+                                    <div id="iconoRegistroDatos"><i class="bi bi-7-circle-fill"></i></div>
+
+                                    <div id="atributoRegistroDatos">
+                                        <p>HHYU87</p>
+                                    </div>
+
+                                </div>
+
+                                <div id="datoRegistrosDatos">
+
+                                    <div id="iconoRegistroDatos"><i class="bi bi-p-circle-fill"></i></div>
+
+                                    <div id="atributoRegistroDatos">
+                                        <p>Quimica Sanguinea</p>
+                                    </div>
+
+                                </div>                        
+
+                            </div>
+
+                            <div id="tarjetaDatosExamen">
+
+                                <div id="contenedorDatosExamen">
+
+                                    <div id="datoRegistrosDatosExamen">
+
+                                        <div id="iconoRegistroDatosExamen"><i class="bi bi-bookmark-plus-fill"></i></div>
+
+                                        <div id="atributoRegistroDatosExamen">
+                                            <p>Glucosa</p>
+                                        </div>
+
+                                    </div>
+
+                                    <div id="datoRegistrosDatosExamen">
+
+                                        <div id="iconoRegistroDatosExamen"><i class="bi bi-coin"></i></div>
+
+                                        <div id="atributoRegistroDatosExamen">
+                                            <p>1.00</p>
+                                        </div>
+
+                                    </div>                        
+
+                                </div>                                                            
+
+                            </div>
+
+                            <div id="contenedorSubtotal">
+
+                                <div id="datoAcumulador">
+
+                                    <div id="iconoAcumulador"><i class="bi bi-currency-dollar"></i></div>
+
+                                    <div id="atributoAcumulador">
+                                        <p>15.00</p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>*@
+
+                        @*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*@
+
+                    </div>
+
+                    <div id="piePruebaExamen">
+
+                        <div id="contenedorSubtotal2">
+
+                            <div id="datoAcumulador2">
+
+                                <div id="iconoAcumulador2"><i class="bi bi-currency-exchange"></i></div>
+
+                                <div id="atributoAcumulador2">
+                                    <p class="">10.00</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div id="contenedorSubtotal2">
+
+                            <div id="datoAcumulador2">
+
+                                <div id="iconoAcumulador2"><i class="bi bi-currency-dollar"></i></div>
+
+                                <div id="atributoAcumulador2">
+                                    <p>15.00</p>
+                                </div>  
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            @*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*@
+
+        </div>
+
+        <div id="contenedorPruebaDatos">
+
+            <div id="tarjetaPruebaDatos">
+
+                <div id="scrollPruebaDatos">
+
+                    @*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*@
+
+                    @foreach (var item in Model.pruebaExamens)
+                    {
+                           
+                        <div id="tarjetaRegistroPrueba2">
+
+                            <div id="contenedorRegistroPrueba">
+
+                                <div id="datoPrueba">
+
+                                    <div id="iconoPrueba"><i class="bi bi-p-circle-fill"></i></div>
+
+                                    <div id="atributoPrueba">
+                                        <input type="hidden" class="inputPruebaExamen" value="@item.IdpruebaExamen">
+                                        <input type="hidden" class="inputNombrePrueba" value="@item.NombrePrueba">
+                                        <p>@item.NombrePrueba</p>
+                                    </div>  
+
+                                </div>
+
+                                <div id="datoPrueba">
+
+                                    <div id="iconoPrueba"><i class="bi bi-currency-dollar"></i></div>
+
+                                    <div id="atributoPrueba">
+                                        <input type="hidden" class="inputPrecioPrueba" value="@item.IdpruebaExamen">
+                                        <p>@item.Precio</p>
+                                    </div>  
+
+                                </div>
+
+                                <div id="datoPrueba">
+
+                                    <div id="iconoPrueba"><i class="bi bi-record-circle-fill"></i></div>
+
+                                    <div id="atributoPrueba">
+                                        <p>@item.TipoExamen</p>
+                                    </div>  
+
+                                </div>
+
+                            </div>
+
+                            <div id="piePruebaDatos">
+
+                                <a onclick="AgregarPruebaExamen(this)" data-id="@item.IdpruebaExamen" class="botonAgregarPrueba" id="botonDatosAgregar"><i class="bi bi-plus-circle-fill"></i> Agregar</a> 
+
+                            </div>
+
+                        </div>
+                        
+                    }
+                    
+                    @*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*@
+
+                </div>
+
+            </div>
+
+            <div id="tarjetaDatosExamen2">
+
+                <div id="headerPruebaDatos">
+
+                    <h1>Datos de Examen - <strong>Vacio</strong></h1>
+
+                </div>
+
+                <div id="scrollDatosExamen">
+
+                    @*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*@
+
+                    @*<div id="tarjetaRegistroPrueba2">
+
+                        <div id="contenedorRegistroPrueba">
+
+                            <div id="datoPrueba">
+
+                                <div id="iconoPrueba"><i class="bi bi-bookmark-plus-fill"></i></div>
+
+                                <div id="atributoPrueba">
+                                    <p>Creatinina</p>
+                                </div>  
+
+                            </div>
+
+                            <div id="datoPrueba">
+
+                                <div id="iconoPrueba"><i class="bi bi-p-circle-fill"></i></div>
+
+                                <div id="atributoPrueba">
+                                    <p>Quimica Sanguinea</p>
+                                </div>  
+
+                            </div>
+
+                        </div>
+
+                        <div id="piePruebaDatos">
+
+                            <a onclick="VerificacionInputs()" id="botonDatosAgregar"><i class="bi bi-plus-circle-fill"></i> Agregar</a> 
+
+                        </div>
+
+                    </div>*@
+                    
+                    @*mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*@
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>                       
+
+</form>
+
+@section Scripts
+{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+
+        let AgregarPruebaExamen = (elementoActual) => {
+
+            let valorInput = $(elementoActual).closest('#tarjetaRegistroPrueba2').find('.inputPruebaExamen').val();
+
+            $.ajax({
+                url: "@Url.Action("buscarDatoExamen", "Laboratorios")",
+                type: "GET",
+                data: { busqueda: valorInput },
+                success: (response) => 
+                {
+                    $('#scrollDatosExamen').empty();
+
+                    $.map(response.datos, (val, index) => {
+
+                        $.each(val, (clave, valor) => {
+
+                            console.log(`ID: ${valor.iddatoExamen}`);
+                            console.log(`Dato: ${valor.dato}`);
+                            console.log(`IdPrueba: ${(valor.idpruebaExamen)}`); 
+                            console.log(`PruebaExamen: ${(valor.pruebaExamen)}`);
+                            let precio = 1.00;
+                           
+                            let $tarjetaDatos = 
+                            $(`
+                                    
+                                <div id="tarjetaRegistroPrueba2">
+
+                                    <div id="contenedorRegistroPrueba">
+
+                                        <div id="datoPrueba">
+
+                                            <div id="iconoPrueba"><i class="bi bi-bookmark-plus-fill"></i></div>
+
+                                            <div id="atributoPrueba">
+                                                <input type="hidden" class="inputDatoExamen" value="${valor.iddatoExamen}">
+                                                <input type="hidden" class="inputNombreDato" value="${valor.dato}">
+                                                <p>${valor.dato}</p>
+                                            </div>  
+
+                                        </div>
+
+                                        <div id="datoPrueba">
+
+                                            <div id="iconoPrueba"><i class="bi bi-p-circle-fill"></i></div>
+
+                                            <div id="atributoPrueba">
+                                                <input type="hidden" class="inputPrecioDato" value="${(precio).toFixed(2)}">
+                                                <p>${valor.pruebaExamen}</p>
+                                            </div>  
+
+                                        </div>
+
+                                    </div>
+
+                                    <div id="piePruebaDatos">
+
+                                        <a onclick="AgregarDatosExamen(this)" id="botonDatosAgregar"><i class="bi bi-plus-circle-fill"></i> Agregar</a> 
+
+                                    </div>
+
+                                </div>
+
+                            `);
+
+                            $tarjetaDatos.appendTo('#scrollDatosExamen');
+
+                            //--------------------------------------------------------------
+
+                            $('#headerPruebaDatos').empty();
+
+                            let $tituloDatos = 
+                            $(`
+                                <h1>Datos de Examen - <strong>${valor.pruebaExamen}</strong></h1>
+                            `)
+
+                            $tituloDatos.appendTo('#headerPruebaDatos');
+
+                        });
+
+                    });
+                },
+                error: () => 
+                {
+                    console.error("Error al procesar la solicitud.");
+                }
+            });
+        }
+
+    </script>
+
+    <script src="~/js/Controladores/Laboratorio.js" asp-append-version="true"></script>
+
+}
+
+
+
