@@ -1,8 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+    <title>Seidman</title>
     <link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'>
     <link rel="stylesheet" href="~/css/Template.css" asp-append-version="true" />
     <meta charset="UTF-8">
@@ -18,7 +17,7 @@
 
         <div class="left">
 
-            <h1>Klinik System</h1>
+            <h1>Seidman Center</h1>
 
         </div>
 
@@ -50,11 +49,8 @@
 
     </nav>
 
-      @RenderBody()
+     @RenderBody()
 
-
-
-     <script src='https://code.jquery.com/jquery-2.1.0.js'></script>
-     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

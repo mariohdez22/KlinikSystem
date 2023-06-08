@@ -12,7 +12,7 @@ public partial class Recetum
     
     public int Idexpediente { get; set; }
 
-    [StringLength(10, ErrorMessage = "El {0} debe de ser de al menos {2} y maximo {1} caracteres", MinimumLength = 4)]
+    [StringLength(6, ErrorMessage = "El {0} debe de ser de al menos {2} y maximo {1} caracteres", MinimumLength = 6)]
     [Required(ErrorMessage = "Codigo de receta obligatorio")]
     public string CodigoReceta { get; set; } = null!;
 
@@ -24,11 +24,9 @@ public partial class Recetum
     [Required(ErrorMessage = "Indicaciones obligatorias")]
     public string Indicaciones { get; set; } = null!;
 
-    [StringLength(30, ErrorMessage = "El {0} debe de ser de al menos {2} y maximo {1} caracteres", MinimumLength = 1)]
     [Required(ErrorMessage = "Cantidad obligatoria")]
     public int Cantidad { get; set; }
 
-    [StringLength(15, ErrorMessage = "El {0} debe de ser de al menos {2} y maximo {1} caracteres", MinimumLength = 8)]
     [Required(ErrorMessage = "Fecha Obligatoria")]
     public DateTime Fecha { get; set; }
 
@@ -36,7 +34,5 @@ public partial class Recetum
     [Required(ErrorMessage = "Duracion de Tratamiento obligatorio")]
     public string DuracionTratamiento { get; set; } = null!;
 
-    [StringLength(10, ErrorMessage = "El {0} debe de ser de al menos {2} y maximo {1} caracteres", MinimumLength = 4)]
-    [Required(ErrorMessage = "Id de expediente de navegacion obligatorio")]
     public virtual Expediente IdexpedienteNavigation { get; set; } = null!;
 }

@@ -18,7 +18,7 @@ public partial class Cita
 
     public int Idpaciente { get; set; }
 
-    [StringLength(9, ErrorMessage = "El {0} debe de ser de al menos {2} y maximo {1} caracteres", MinimumLength = 9)]
+    [StringLength(8, ErrorMessage = "El {0} debe de ser de al menos {2} y maximo {1} caracteres", MinimumLength = 8)]
     [Required(ErrorMessage = "Dui Obligatorio")]
     public string DuiPaciente { get; set; } = null!;
 

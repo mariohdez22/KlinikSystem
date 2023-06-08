@@ -95,8 +95,10 @@ else
                 <div id="apartadoInputsRegistro">
 
                     <div id="grupoInputRegistro">
-                        <div id="iconoInputRegistro"><i class="bi bi-person-fill-add"></i></div>
-                        <input asp-for="obRecetum.Idexpediente" type="text" placeholder="Agregar Id Expediente" />
+                        <div id="iconoInputRegistro"><i class="bi bi-clipboard-plus-fill"></i></div>
+                        <select asp-for="obRecetum.Idexpediente" asp-items="@Model.listaExpediente">
+                            <option>Expediente</option>
+                        </select>
                     </div>
 
                     <div id="grupoInputRegistro">
@@ -114,26 +116,25 @@ else
                         <input asp-for="obRecetum.Indicaciones" placeholder="Agregar Indicaciones" />
                     </div>
 
-                    <div id="grupoInputRegistro">
-                        <div id="iconoInputRegistro"><i class="bi bi-envelope-plus-fill"></i></div>
-                        <input asp-for="obRecetum.Cantidad" placeholder="Agregar Cantidad" />
-                    </div>
-
                 </div>
 
                 <div id="apartadoInputsRegistro">
 
-
+                    <div id="grupoInputRegistro">
+                        <div id="iconoInputRegistro"><i class="bi bi-envelope-plus-fill"></i></div>
+                        <input asp-for="obRecetum.Cantidad" type="text" value="" placeholder="Agregar Cantidad" />
+                    </div>
 
                     <div id="grupoInputRegistro">
                         <div id="iconoInputRegistro"><i class="bi bi-envelope-plus-fill"></i></div>
-                        <input asp-for="obRecetum.Fecha" placeholder="Agregar Fecha" />
+                        <input asp-for="obRecetum.Fecha" type="text" value="@DateTime.Now" placeholder="Agregar Fecha" />
                     </div>
 
                     <div id="grupoInputRegistro">
                         <div id="iconoInputRegistro"><i class="bi bi-envelope-plus-fill"></i></div>
                         <input asp-for="obRecetum.DuracionTratamiento" placeholder="Agregar Duracion de Tratamiento" />
                     </div>
+
                 </div>
 
             </div>

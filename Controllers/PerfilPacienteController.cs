@@ -8,5 +8,25 @@ namespace KlinikSystem.Controllers
         {
             return View();
         }
+
+        //------------------------------------------------------------------------------
+
+        public IActionResult IndexCitas()
+        {
+            return View();
+        }
+
+        public IActionResult AgregarCita() 
+        {
+            return View();
+        }
+
+        //------------------------------------------------------------------------------
+
+        public IActionResult IndexRecetas()
+        {
+            return View();
+        }
+
     }
 }

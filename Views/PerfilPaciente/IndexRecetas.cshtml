@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewData["Title"] = "IndexRecetas";
+    Layout = "~/Views/Template/LayoutClientes.cshtml";
+}
+@section Estilos
+{
+    <link rel="stylesheet" href="~/css/PerfilPaciente.css" asp-append-version="true" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+}
+
+    <div class="container" style="padding-top: 40px;">
+
+      <div class="row">
+
+          <div class="col" style="margin-bottom: 40px;">
+
+              <div class="card">
+                  <div class="card-header">
+                    Recetas del paciente
+                  </div>
+                  <div class="card-body">
+
+                      <div id="scrollRecetas">
+
+                          <div class="card" style="width: 18rem;">
+                              <div class="card-header bg-info">
+                                <strong>CodReceta: <strong class="text-danger">HHIU87</strong></strong>                                
+                              </div>
+                              <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><strong>Medicamento:</strong> Eucerin</li>
+                                <li class="list-group-item"><strong>Indicaciones:</strong> Tomar 1 pastilla cada 8 horas despues de cada comida</li>
+                                <li class="list-group-item"><strong>Cantidad:</strong> 2 diarias</li>
+                                <li class="list-group-item"><strong>Duracion del Tratamiento:</strong> 2 semanas maximo</li>
+                                <li class="list-group-item"><strong>Fecha:</strong> @DateTime.Now</li>
+                              </ul>
+                          </div>
+
+                      </div>
+
+                  </div>
+                  <div class="card-footer">
+                      <a asp-action="IndexPerfil" asp-controller="PerfilPaciente" style="margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" class="btn btn-outline-secondary">Regresar al perfil</a>
+                  </div>
+              </div>
+
+          </div>
+
+      </div>
+
+    </div>
+
+@section Scripts
+{
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+}
+

@@ -32,7 +32,7 @@ else
 
 <form asp-action="AgregarCita" asp-controller="Citas" method="post">
 
-    <input type="text" asp-for="obCitas.Idcitas"/>
+    <input type="hidden" asp-for="obCitas.Idcitas"/>
 
     <div id="contenedorGeneralFormulario">
 
@@ -99,7 +99,7 @@ else
 
                     <div id="grupoInputRegistro">
                         <div id="iconoInputRegistro"><i class="bi bi-person-vcard-fill"></i></div>
-                        <input asp-for="obCitas.Fecha" type="text"  placeholder="Agregar fecha" />
+                        <input asp-for="obCitas.Fecha" type="text" value="@DateTime.Now" placeholder="Agregar fecha" />
                     </div>
 
                     <div id="grupoInputRegistro">

@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewData["Title"] = "AgregarCita";
+    Layout = "~/Views/Template/LayoutClientes.cshtml";
+}
+@section Estilos
+{
+    <link rel="stylesheet" href="~/css/PerfilPaciente.css" asp-append-version="true" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+}
+
+    <div class="container" style="padding-top: 40px;">
+
+      <div class="row">
+
+          <div class="col" style="margin-bottom: 40px;">
+
+              <div class="card">
+                  <div class="card-header">
+                    Citas del paciente
+                  </div>
+                  <div class="card-body" style="">
+
+                      <form>
+
+                          <div class="row">
+
+                              <div class="col">
+                          
+                                  <div class="input-group mb-3">
+                                      <span style="width: 120px;" class="input-group-text bg-danger text-white bg-opacity-75" id="basic-addon1">NumCita</span>
+                                      <input style="border: 1px solid #C8C8C8;" type="text" class="form-control" placeholder="Agregar Num" aria-label="Username" aria-describedby="basic-addon1">
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                      <span style="width: 120px;" class="input-group-text bg-danger text-white bg-opacity-75" id="basic-addon1">Fecha</span>
+                                      <input style="border: 1px solid #C8C8C8;" type="text" class="form-control" placeholder="Agregar Fecha" aria-label="Username" aria-describedby="basic-addon1">
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                      <span style="width: 120px;" class="input-group-text bg-danger text-white bg-opacity-75" id="basic-addon1">Paciente</span>
+                                      <input style="border: 1px solid #C8C8C8;" type="text" class="form-control" placeholder="Agregar Paciente" aria-label="Username" aria-describedby="basic-addon1">
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                      <span style="width: 120px;" class="input-group-text bg-danger text-white bg-opacity-75" id="basic-addon1">DUI</span>
+                                      <input style="border: 1px solid #C8C8C8;" type="text" class="form-control" placeholder="Agregar DUI" aria-label="Username" aria-describedby="basic-addon1">
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                      <span style="width: 120px;" class="input-group-text bg-danger text-white bg-opacity-75" id="basic-addon1">Personal</span>
+                                      <input style="border: 1px solid #C8C8C8;" type="text" class="form-control" placeholder="Agregar Personal" aria-label="Username" aria-describedby="basic-addon1">
+                                  </div>
+
+                              </div>
+
+                              <div class="col">
+
+                                  <div class="input-group mb-3">
+                                      <span style="width: 120px;" class="input-group-text bg-danger text-white bg-opacity-75" id="basic-addon1">Especialidad</span>
+                                      <input style="border: 1px solid #C8C8C8;" type="text" class="form-control" placeholder="Agregar Especialidad" aria-label="Username" aria-describedby="basic-addon1">
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                      <span style="width: 120px;" class="input-group-text bg-danger text-white bg-opacity-75" id="basic-addon1">Estado Cita</span>
+                                      <input style="border: 1px solid #C8C8C8;" type="text" class="form-control" placeholder="Estado de la Cita" aria-label="Username" aria-describedby="basic-addon1">
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                      <span style="width: 120px;" class="input-group-text bg-danger text-white bg-opacity-75" id="basic-addon1">Metodo Pago</span>
+                                      <input style="border: 1px solid #C8C8C8;" type="text" class="form-control" placeholder="Metodo de pago" aria-label="Username" aria-describedby="basic-addon1">
+                                  </div>
+
+                                  <div class="input-group mb-3">
+                                      <span style="width: 120px;" class="input-group-text bg-danger text-white bg-opacity-75" id="basic-addon1">Precio</span>
+                                      <input style="border: 1px solid #C8C8C8;" type="text" class="form-control" placeholder="Precio total" aria-label="Username" aria-describedby="basic-addon1">
+                                  </div>
+
+                              </div>
+
+                          </div>
+
+                          <button type="submit"  class="btn btn-success"><i class="bi bi-plus-circle-fill"></i> Agregar Cita</button>
+
+                      </form>
+
+                  </div>
+                  <div class="card-footer">
+                      <a asp-action="IndexCitas" asp-controller="PerfilPaciente" style="margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" class="btn btn-outline-secondary">Regresar a las citas</a>
+                  </div>
+              </div>
+
+          </div>
+
+      </div>
+
+    </div>
+
+@section Scripts
+{
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+}
+
+
