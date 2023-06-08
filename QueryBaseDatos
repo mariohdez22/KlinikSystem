@@ -1,0 +1,335 @@
+
+create database KlinikSystem
+
+use KlinikSystem
+
+
+create table area_trabajo
+(
+	idareaTrabajo int not null identity(1,1) primary key,
+	areaTrabajo varchar(max) not null
+)
+
+create table especialidades
+(
+	idespecialidad int not null identity(1,1) primary key,
+	especialidad varchar(max) not null 
+)
+
+create table estado_personal
+(
+	idestadoPersonal int not null identity(1,1) primary key,
+	estadoPersonal varchar(max) not null
+)
+
+create table personal
+(
+	idpersonal int not null identity(1,1) primary key,
+	nombres varchar(max) not null,
+	dui varchar(max) not null,
+	profecion varchar(max) not null,
+	celular varchar(max) not null,
+	correo varchar(max) not null,
+	contrasena varchar(max) not null,
+	imagen varchar(max) not null,
+	idareaTrabajo int not null references area_trabajo(idareaTrabajo),
+	idespecialidad int not null references especialidades(idespecialidad),
+	idestadoPersonal int not null references estado_personal(idestadoPersonal)
+)
+
+create table estado_paciente
+(
+	idestadoPaciente int not null identity(1,1) primary key,
+	estadoPaciente varchar(max) not null
+)
+
+create table pacientes
+(
+	idpaciente int not null identity(1,1) primary key,
+	nombre varchar(max) not null,
+	dui varchar(max) not null,
+	correo varchar(max) not null,
+	celular varchar(max) not null,
+	fechaNacimiento date not null,
+	contrasena varchar(max) not null,
+	idestadoPaciente int not null references estado_paciente(idestadoPaciente)
+)
+
+create table estado_cita
+(
+	idestadoCita int not null identity(1,1) primary key,
+	estadoCita varchar(max) not null
+)
+
+create table metodo_pago
+(
+	idmetodoPago int not null identity(1,1) primary key,
+	metodoPago varchar(max)
+)
+
+create table citas
+(
+	idcitas int not null identity(1,1) primary key,
+	numCita varchar(max) not null,
+	fecha datetime not null,
+	idpaciente int not null references pacientes(idpaciente),
+	duiPaciente varchar(max) not null,
+	idpersonal int not null references personal (idpersonal),
+	especialidadPersonal varchar(max) not null,
+	idestadoCita int not null references estado_cita(idestadoCita),
+	idmetodoPago int not null references metodo_pago(idmetodoPago),
+	precio numeric(10,2) not null,
+)
+
+create table estado_expediente
+(
+	idestadoExpediente int not null identity(1,1) primary key,
+	estadoExpediente varchar(max) not null
+)
+
+create table expediente
+(
+	idexpediente int not null identity(1,1) primary key,
+	numeroExpediente varchar(max) not null,
+	idpaciente int not null references pacientes(idpaciente),
+	idpersonal  int not null references personal(idpersonal),
+	fechaCreacion datetime not null,
+	alergias varchar(max) not null,
+	idestadoExpediente int not null references estado_expediente(idestadoExpediente)
+)
+
+create table registro_expediente
+(
+	idregistroExpediente int not null identity(1,1) primary key, 
+	idexpediente int not null references expediente(idexpediente),
+	motivoVisita varchar(max) not null,
+	sintomas varchar(max) not null,
+	gravedadAsunto varchar(max) not null,
+	fecha datetime not null
+)
+
+create table receta
+(
+	idreceta int not null identity(1,1) primary key,
+	idexpediente int not null references expediente(idexpediente),
+	codigoReceta varchar(max) not null,
+	medicamento varchar(max) not null,
+	indicaciones varchar(max) not null,
+	cantidad int not null,
+	fecha datetime not null,
+	duracionTratamiento varchar(max) not null
+)
+
+create table servicios
+(
+	idservicios int not null identity(1,1) primary key,
+	idexpediente int not null references expediente(idexpediente),
+	codigoServicio varchar(max) not null,
+	subtotal numeric(10,2) not null,
+	total numeric(10,2) not null,
+	fecha datetime not null
+)
+
+create table tipo_servicio
+(
+	idtipoServicio int not null identity(1,1) primary key,
+	tipoServicio varchar(max) not null
+)
+
+create table detalle_servicios
+(
+	iddetalleServicios int not null identity(1,1) primary key,
+	idservicios int not null references servicios(idservicios),
+	idtipoServicio int not null references tipo_servicio(idtipoServicio),
+	precio numeric(10,2) not null,
+	resultado varchar(max) not null
+)
+
+create table estado_laboratorio
+(
+	idestadoLaboratorio int not null identity(1,1) primary key,
+	estadoLaboratorio varchar(max) not null
+)
+
+create table laboratorio
+(
+	idlaboratorio int not null identity(1,1) primary key,
+	idexpediente int not null references expediente(idexpediente),
+	codigoLaboratorio varchar(max) not null,
+	subtotal numeric(10,2) not null,
+	total numeric(10,2) not null,
+	fecha datetime not null,
+	tipoSangre varchar(max) not null,
+	idestadoLaboratorio int not null references estado_laboratorio(idestadoLaboratorio)
+)
+
+create table tipo_examen
+(
+	idtipoExamen int not null identity(1,1) primary key,
+	tipoExamen varchar(max) not null
+)
+
+create table prueba_examen
+(
+	idpruebaExamen int not null identity(1,1) primary key,
+	nombrePrueba varchar(max) not null,
+	precio numeric(10,2) not null,
+	idtipoExamen int not null references tipo_examen(idtipoExamen)
+)
+
+create table dato_examen
+(
+	iddatoExamen int not null identity(1,1) primary key,
+	dato varchar(max) not null,
+	idpruebaExamen int not null references prueba_examen(idpruebaExamen)
+)
+
+create table detalle_examen
+(
+	iddetalleExamen int not null identity(1,1) primary key,
+	codigoDetalle varchar(max) not null,
+	idlaboratorio int not null references laboratorio(idlaboratorio),
+	idpruebaExamen int not null references prueba_examen(idpruebaExamen),
+	subtotal numeric(10,2) not null,
+)
+
+create table detalle_datos
+(
+	iddetalleDatos int not null identity(1,1) primary key,
+	iddetalleExamen int not null references detalle_examen(iddetalleExamen),
+	iddatoExamen int not null references dato_examen(iddatoExamen),
+	precio numeric(10,2) not null
+)
+
+create table unidades
+(
+	idunidades int not null identity(1,1) primary key,
+	unidad varchar(max) not null
+)
+
+create table resultados 
+(
+	idresultados int not null identity(1,1) primary key,
+	iddetalleExamen int not null references detalle_examen(iddetalleExamen),
+	paciente varchar(max) not null,
+	fecha datetime not null,
+	observaciones varchar(max) not null
+)
+
+create table detalle_resultados
+(
+	iddetalleResultados int not null identity(1,1) primary key,
+	idresultados int not null references resultados(idresultados),
+	iddatosExamen int not null references dato_examen(iddatoExamen),
+	resultado varchar(max) not null,
+	idunidades int not null references unidades(idunidades),
+	rangoReferencia varchar(max) not null
+)
+
+insert into estado_cita
+values ('Realizada'),
+	   ('Cancelada'),
+	   ('Pendiente')
+
+insert into metodo_pago
+values ('Efectivo'),
+	   ('Tarjeta'),
+	   ('PayPal')
+
+insert into citas
+values ('HYUI7823', '31/05/2023', 1, '84655443', 1, 'Oftalmologia', 3, 1, 10.00)
+
+insert into area_trabajo
+values ('Tecnico'),
+	   ('Medicina'),
+	   ('Secretaria'),
+	   ('Laboratorios'),
+	   ('Servicios')
+
+insert into especialidades
+values ('Ortopedia'),
+	   ('Dermatologia'),
+	   ('Nutricion'),
+	   ('Neurologia'),
+	   ('Otorrinolaringologia'),
+	   ('Urologia'),
+	   ('Endocrinologia'),
+	   ('Mastologia')
+
+insert into estado_personal
+values ('Vigente'),
+	   ('Inactivo'),
+	   ('Despedido')
+
+insert into personal 
+values ('Mario Hernandez', '077654674', 'Doctorado en Pediatria', '76566789', 'marioherzpex@gmail.com', 'enginnering123', 'hola123.jpg', 2, 1, 1)
+
+insert into estado_paciente
+values ('vigente'),
+	   ('Ausente'),
+	   ('Fallecido')
+
+insert into pacientes
+values ('Gerson Daniel', '893498438', 'themonrra123@gmail.com', '78232398', '02/02/2003', 'gersonTheMonrra789', 1)
+
+insert into estado_expediente
+values ('vigente'),
+	   ('suspendido')
+
+insert into expediente
+values ('RPYK2334', 1, 1, 2023-05-14, 'ninguna', 1)
+
+select * from expediente
+
+insert into receta
+values (2, 'PPM874', 'Peptobismol', 'tomar 10ml cada 8 horas', 5, '31/05/2023', '10 dias')
+
+insert into registro_expediente
+values (2, 'presentacion de sintomas de gripe y tos renuente', 'tos, dolor de cabeza, mocosera, dolor de garganta', 'Asunto Leve', '31/05/2023')
+
+insert into tipo_examen
+values('Sangre'),
+	  ('Hematologia'),
+	  ('Bacteriologia'),
+	  ('Heces'),
+	  ('Orina')
+
+insert into prueba_examen
+values('Quimica Sanguinea', 1.00, 1),
+	  ('Hemograma', 1.00, 2),
+	  ('Leucograma', 1.00, 2),
+	  ('Urocultivo', 1.00, 3),
+	  ('Heces General', 1.00, 4),
+	  ('Orina General', 1.00, 5)
+
+insert into dato_examen
+values('Glucosa', 1),
+	  ('Glucosa Pospandrial', 1),
+	  ('Hemoglobina', 1),
+	  ('Trigliceridos', 1),
+	  ('Colesterol', 1),
+	  ('Colesterol HDL', 1),
+	  ('Colesterol LDL', 1),
+	  ('Acido Urico', 1),
+	  ('Nitrogeno Ureico', 1),
+	  ('Creatinina', 1),
+	  ('Globulos Rojos', 2),
+	  ('Hematocrito', 2),
+	  ('Hemoglobina', 2),
+	  ('VGM', 2),
+	  ('CHGM', 2),
+	  ('HGM', 2),
+	  ('Globulos Blancos', 2),
+	  ('Linfocitos', 2),
+	  ('Monocitos', 2),
+	  ('Neutrofilos segm.', 2),
+	  ('Neutrofilos en banda', 2),
+	  ('Eosinofilos', 2),
+	  ('Basofilos', 2)
+
+
+select * from expediente
+
+
+
+
